@@ -1,17 +1,17 @@
-This file tells Netlify how to build your site and where to find the serverless functions.
+# This file tells Netlify how to build your site and where to find the serverless functions.
 [build]
 
-We don't have a build step for this simple HTML site.
+# We don't have a build step for this simple HTML site.
 command = ""
 
-The folder to publish is the root directory where index.html is.
+# The folder to publish is the root directory where index.html is.
 publish = "."
 
 [functions]
 
-Netlify will automatically look for functions in this directory.
+# Netlify will automatically look for functions in this directory.
 directory = "functions"
 
-Specifies the Node.js runtime version.
+# Specifies the Node.js bundler to use.
 node_bundler = "esbuild"
 included_files = ["node_modules/**"]
