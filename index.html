@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneha Basu | MBAi Student @ Kellogg</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #4338ca; /* Indigo-700 for hover */
+        }
+        .project-card, .blog-post {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover, .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+        }
+        .skill-tag {
+             background-color: #e0e7ff;
+             color: #3730a3;
+             font-weight: 500;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700">
+
+    <!-- Header & Navigation -->
+    <header class="bg-slate-50/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-200">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-900">Sneha Basu</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-slate-600">About</a>
+                <a href="#projects" class="nav-link text-slate-600">Projects</a>
+                <a href="#resume" class="nav-link text-slate-600">Resume</a>
+                <a href="#blog" class="nav-link text-slate-600">Blog</a>
+                <a href="#contact" class="nav-link text-slate-600">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden flex items-center px-3 py-2 border rounded border-slate-400 text-slate-500 hover:text-slate-800 hover:border-slate-800">
+                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
+            <a href="#about" class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100">About</a>
+            <a href="#projects" class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100">Projects</a>
+            <a href="#resume" class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100">Resume</a>
+            <a href="#blog" class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100">Blog</a>
+            <a href="#contact" class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Hero Section -->
+        <section id="about" class="text-center py-20">
+            <img class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-white shadow-lg" src="https://placehold.co/160x160/e0e7ff/4338ca?text=SB" alt="Sneha Basu">
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4">Hi, I'm Sneha Basu</h1>
+            <p class="text-xl text-slate-500 max-w-3xl mx-auto">I'm an MBAi student at the Kellogg School of Management. Welcome to my personal space where I share my projects and thoughts on business and artificial intelligence.</p>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">My Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden border border-slate-200">
+                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/f3f4f6/4f46e5?text=Project+1" alt="Project 1">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Project Title One</h3>
+                        <p class="text-slate-600 mb-4">A brief description of the project, its purpose, and the technologies used. Keep it concise but informative.</p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-semibold">View Project &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden border border-slate-200">
+                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/f3f4f6/4f46e5?text=Project+2" alt="Project 2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Project Title Two</h3>
+                        <p class="text-slate-600 mb-4">This project showcases my skills in another area. Describe what makes this project special and what you learned.</p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-semibold">View Project &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden border border-slate-200">
+                    <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/f3f4f6/4f46e5?text=Project+3" alt="Project 3">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Project Title Three</h3>
+                        <p class="text-slate-600 mb-4">This could be a team project or a personal challenge. Highlight your role and the outcome of the project.</p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-semibold">View Project &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="py-20 bg-slate-100 rounded-lg">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">My Resume</h2>
+                <p class="text-slate-600 mb-8">You can view my professional experience, skills, and education by downloading my resume.</p>
+                <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Download Resume (PDF)</a>
+            </div>
+            <div class="mt-12 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-slate-900 mb-6 text-center">Key Skills</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="skill-tag text-sm px-4 py-2 rounded-full">JavaScript</span>
+                    <span class="skill-tag text-sm px-4 py-2 rounded-full">React</span>
+                    <span class="skill-tag text-sm px-4 py-2 rounded-full">Node.js</span>
+                    <span class="skill-tag text-sm px-4 py-2 rounded-full">Python</span>
+                    <span class="skill-tag text-sm px-4 py-2 rounded-full">SQL</span>
+                    <span class="skill-tag text-sm px-4 py-2 rounded-full">Git & GitHub</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="py-20">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Latest Blog Posts</h2>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <!-- Blog Post 1 -->
+                <div class="blog-post bg-white p-6 rounded-lg border border-slate-200">
+                    <p class="text-sm text-slate-500 mb-2">September 15, 2025</p>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">How to Deploy a Static Site with GitHub Pages</h3>
+                    <p class="text-slate-600 mb-4">A step-by-step guide to get your personal website online for free using GitHub Pages. It's easier than you think!</p>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-800 font-semibold">Read More &rarr;</a>
+                </div>
+                <!-- Blog Post 2 -->
+                <div class="blog-post bg-white p-6 rounded-lg border border-slate-200">
+                    <p class="text-sm text-slate-500 mb-2">August 28, 2025</p>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Why I Chose Tailwind CSS for My New Portfolio</h3>
+                    <p class="text-slate-600 mb-4">Exploring the benefits of utility-first CSS and how it helped me build this website quickly and efficiently.</p>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-800 font-semibold">Read More &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">Get In Touch</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-10">
+                I'm currently open to new opportunities. If you have a project in mind or just want to say hi, feel free to reach out.
+            </p>
+            <div class="flex justify-center items-center space-x-6">
+                <a href="mailto:your.email@example.com" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Say Hello</a>
+                <a href="https://www.linkedin.com/in/sneha-basu/" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-indigo-600 transition duration-300">
+                    <span class="sr-only">LinkedIn</span>
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p>&copy; 2025 Sneha Basu. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const navLinks = document.querySelectorAll('#mobile-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+
