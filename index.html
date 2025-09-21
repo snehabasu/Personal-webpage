@@ -78,7 +78,7 @@
             border-radius: 6px;
             border: 1px solid #e2e8f0; /* slate-200 */
         }
-         /* Responsive Timeline */
+        /* Responsive Timeline */
         @media screen and (max-width: 768px) {
             .timeline-container::after {
                 left: 31px;
@@ -101,6 +101,39 @@
                 left: 0%;
             }
         }
+        /* Status Indicator Animation */
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: #22c55e; /* green-500 */
+            border-radius: 50%;
+            position: relative;
+        }
+        .status-indicator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #22c55e;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+            70% {
+                transform: scale(2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-700">
@@ -111,6 +144,7 @@
             <a href="#" class="text-2xl font-bold text-slate-900">Sneha Basu</a>
             <div class="hidden md:flex space-x-8">
                 <a href="#about" class="nav-link text-slate-600">About</a>
+                <a href="#now" class="nav-link text-slate-600">Now</a>
                 <a href="#experience" class="nav-link text-slate-600">Experience</a>
                 <a href="#projects" class="nav-link text-slate-600">Projects</a>
                 <a href="#resume" class="nav-link text-slate-600">Resume</a>
@@ -125,6 +159,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
             <a href="#about" class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100">About</a>
+            <a href="#now" class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100">Now</a>
             <a href="#experience" class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100">Experience</a>
             <a href="#projects" class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100">Projects</a>
             <a href="#resume" class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100">Resume</a>
@@ -141,6 +176,20 @@
             <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4">Hi, I'm Sneha Basu</h1>
             <p class="text-xl text-slate-500 max-w-3xl mx-auto">I'm an MBAi student at the Kellogg School of Management. Welcome to my personal space where I share my projects and thoughts on business and artificial intelligence.</p>
         </section>
+
+        <!-- Now Section -->
+        <section id="now" class="py-20">
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg border border-slate-200 text-center">
+                <h2 class="text-2xl font-bold text-slate-900 mb-4">NOW</h2>
+                <p class="text-slate-600 mb-2">Evanston, Illinois</p>
+                <p id="current-time" class="text-lg font-mono text-slate-800 mb-4">10:14 PM CDT</p>
+                <div class="inline-flex items-center bg-green-100 text-green-800 text-sm font-medium px-4 py-1 rounded-full">
+                    <span class="status-indicator mr-2"></span>
+                    Open to Work
+                </div>
+            </div>
+        </section>
+
 
         <!-- Work Experience Section -->
         <section id="experience" class="py-20">
@@ -287,24 +336,41 @@
     </footer>
     
     <script>
-        // JavaScript for mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // --- Mobile menu toggle ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        const navLinks = document.querySelectorAll('#mobile-menu a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
+
+            // Close mobile menu when a link is clicked
+            const navLinks = document.querySelectorAll('#mobile-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- Real-time clock ---
+            const timeElement = document.getElementById('current-time');
+
+            function updateTime() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', {
+                    timeZone: 'America/Chicago',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    timeZoneName: 'short'
+                });
+                timeElement.textContent = timeString;
+            }
+
+            updateTime(); // Initial call
+            setInterval(updateTime, 1000); // Update every second
         });
     </script>
 </body>
 </html>
-
-
 
