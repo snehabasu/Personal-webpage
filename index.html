@@ -187,6 +187,9 @@
             <img class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-white shadow-lg object-cover" src="sneha-basu-photo.png" alt="A professional headshot of Sneha Basu" onerror="this.onerror=null; this.src='https://placehold.co/160x160/e0e7ff/4338ca?text=SB';">
             <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4">Hi, I'm Sneha Basu</h1>
             <p class="text-xl text-slate-500 max-w-3xl mx-auto">I'm an MBAi student at the Kellogg School of Management, passionate about the intersection of business strategy and artificial intelligence.</p>
+             <div class="mt-8">
+                <a href="Sneha-resume.pdf" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">View My Resume</a>
+            </div>
         </section>
 
         <!-- Now Section -->
@@ -206,28 +209,28 @@
         <section id="experience" class="py-20">
             <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Work Experience</h2>
             <div class="timeline-container">
-                <!-- Experience 1 -->
+                 <!-- Experience 1 -->
                 <div class="timeline-item timeline-left">
                     <div class="timeline-content experience-card">
-                        <h3 class="text-xl font-bold text-slate-900">Senior Product Manager</h3>
-                        <p class="text-sm text-slate-500 mb-2">Tech Solutions Inc. | 2022 - Present</p>
-                        <p class="text-slate-600 text-sm">Led development of an AI-powered analytics platform, managing a team of engineers and designers to increase user engagement by 25%.</p>
+                        <h3 class="text-xl font-bold text-slate-900">Product Manager</h3>
+                        <p class="text-sm text-slate-500 mb-2">Wingrep.AI | Summer 2025</p>
+                        <p class="text-slate-600 text-sm">Analyzed product metrics to drive UX improvements and translated customer feedback into engineering user stories, increasing feature adoption by 40%.</p>
                     </div>
                 </div>
                 <!-- Experience 2 -->
                 <div class="timeline-item timeline-right">
                     <div class="timeline-content experience-card">
-                        <h3 class="text-xl font-bold text-slate-900">Product Manager</h3>
-                        <p class="text-sm text-slate-500 mb-2">Innovate Co. | 2020 - 2021</p>
-                        <p class="text-slate-600 text-sm">Oversaw the full product lifecycle, from market research and concept validation to launch and iteration for key B2B software features.</p>
+                        <h3 class="text-xl font-bold text-slate-900">Software Engineer II</h3>
+                        <p class="text-sm text-slate-500 mb-2">Salesforce | 2022 - 2025</p>
+                        <p class="text-slate-600 text-sm">Increased GenAI feature adoption by 60% by delivering a RAG-based AI search. Drove launch of a feature that boosted customer visibility by 30%.</p>
                     </div>
                 </div>
                  <!-- Experience 3 -->
                  <div class="timeline-item timeline-left">
                     <div class="timeline-content experience-card">
-                        <h3 class="text-xl font-bold text-slate-900">Associate Product Manager</h3>
-                        <p class="text-sm text-slate-500 mb-2">Startup Hub | 2018 - 2020</p>
-                        <p class="text-slate-600 text-sm">Assisted in defining product roadmaps and analyzed user data to inform feature prioritization for the company's first mobile app.</p>
+                        <h3 class="text-xl font-bold text-slate-900">Software Engineer I</h3>
+                        <p class="text-sm text-slate-500 mb-2">Salesforce | 2020 - 2022</p>
+                        <p class="text-slate-600 text-sm">Designed development roadmap for internal monitoring features and redesigned a deployment framework used by over 300 Salesforce engineers.</p>
                     </div>
                 </div>
             </div>
@@ -284,7 +287,7 @@
             <div class="space-y-8 max-w-4xl mx-auto">
                 <!-- Blog Post 1 -->
                 <div class="blog-post bg-white p-6 rounded-lg border border-slate-200">
-                    <p class="text-sm text-slate-500 mb-2">September 15, 2025</p>
+                    <p class="text-sm text-slate-500 mb-2">September 20, 2025</p>
                     <h3 class="text-2xl font-bold text-slate-900 mb-3">Deploying Your First Static Site</h3>
                     <p class="text-slate-600 mb-4">A step-by-step guide to get your personal website online for free using GitHub Pages.</p>
                     <a href="#" class="text-indigo-600 hover:text-indigo-800 font-semibold">Read More &rarr;</a>
@@ -307,7 +310,7 @@
                     I'm currently open to new opportunities. Feel free to reach out directly or use the AI assistant below to draft a message.
                 </p>
                  <div class="text-center mb-10">
-                     <a href="mailto:your.email@example.com" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 inline-block">Say Hello</a>
+                     <a href="mailto:sneha.basu@kellogg.northwestern.edu" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 inline-block">Say Hello</a>
                  </div>
 
                 <!-- Gemini AI Assistant -->
@@ -318,6 +321,7 @@
                     </div>
                     <label for="contact-prompt" class="font-semibold text-slate-700 text-sm">What would you like to talk about?</label>
                     <input id="contact-prompt" type="text" placeholder="e.g., Coffee chat about product management" class="w-full mt-1 mb-3 p-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                    <p id="contact-error" class="text-red-600 text-sm mb-2 hidden"></p>
                     <button id="generate-contact-btn" class="gemini-btn w-full font-semibold py-2 px-4 rounded-lg flex items-center justify-center gap-2">
                         Generate Draft
                     </button>
@@ -379,40 +383,48 @@
             updateTime();
             setInterval(updateTime, 1000);
 
-            // --- Gemini API Integration ---
-            const API_KEY = ""; // This will be handled by the environment
-            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
+            // --- Gemini API Integration via Serverless Function ---
+            const PROXY_URL = `/.netlify/functions/gemini-proxy`;
 
             async function callGeminiAPI(prompt, button) {
                 const originalText = button.innerHTML;
                 button.disabled = true;
                 button.innerHTML = '<div class="loader"></div>';
 
-                const payload = {
-                    contents: [{ parts: [{ text: prompt }] }],
-                };
+                // Clear previous errors
+                const errorElement = document.getElementById('contact-error');
+                if(errorElement) errorElement.classList.add('hidden');
 
                 try {
-                    const response = await fetch(API_URL, {
+                    const response = await fetch(PROXY_URL, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
+                        body: JSON.stringify({ prompt })
                     });
 
                     if (!response.ok) {
-                        throw new Error(`API Error: ${response.statusText}`);
+                        const errorData = await response.json();
+                        throw new Error(errorData.error || `API Error: ${response.statusText}`);
                     }
 
                     const result = await response.json();
                     const candidate = result.candidates?.[0];
+
                     if (candidate && candidate.content?.parts?.[0]?.text) {
                         return candidate.content.parts[0].text.trim();
-                    } else {
+                    } else if (result.error) {
+                        throw new Error(result.error);
+                    } 
+                    else {
                         throw new Error("Invalid response structure from API.");
                     }
                 } catch (error) {
                     console.error("Gemini API call failed:", error);
-                    return "Sorry, there was an error generating the text.";
+                    if(errorElement) {
+                        errorElement.textContent = `Error: ${error.message}. Make sure the serverless function is configured correctly.`;
+                        errorElement.classList.remove('hidden');
+                    }
+                    return null; // Return null on error
                 } finally {
                     button.disabled = false;
                     button.innerHTML = originalText;
@@ -430,7 +442,9 @@
                     const prompt = `Write a professional and concise, one-sentence project description for a project titled "${title}" that uses the following technologies: ${tags}.`;
                     
                     const generatedDescription = await callGeminiAPI(prompt, button);
-                    descriptionElement.textContent = generatedDescription;
+                    if(generatedDescription) {
+                       descriptionElement.textContent = generatedDescription;
+                    }
                 });
             });
 
@@ -440,25 +454,30 @@
             const contactOutputContainer = document.getElementById('contact-output-container');
             const contactOutput = document.getElementById('contact-output');
             const copyContactBtn = document.getElementById('copy-contact-btn');
+            const contactError = document.getElementById('contact-error');
+
 
             generateContactBtn.addEventListener('click', async () => {
                 const userInput = contactPromptInput.value.trim();
                 if (!userInput) {
-                    alert("Please enter what you'd like to talk about.");
+                    contactError.textContent = "Please enter what you'd like to talk about.";
+                    contactError.classList.remove('hidden');
                     return;
                 }
+                contactError.classList.add('hidden');
 
                 const prompt = `You are a professional reaching out to Sneha Basu, an MBAi student at Kellogg. Write a short, friendly, and professional email draft based on the following key points: "${userInput}". Keep it concise, clear, and ready to send. Sign off with a placeholder for the sender's name, like "[Your Name]".`;
                 
                 const generatedMessage = await callGeminiAPI(prompt, generateContactBtn);
-                contactOutput.textContent = generatedMessage;
-                contactOutputContainer.classList.remove('hidden');
-                copyContactBtn.textContent = 'Copy Text';
+                if (generatedMessage) {
+                    contactOutput.textContent = generatedMessage;
+                    contactOutputContainer.classList.remove('hidden');
+                    copyContactBtn.textContent = 'Copy Text';
+                }
             });
             
             copyContactBtn.addEventListener('click', () => {
                 const textToCopy = contactOutput.textContent;
-                 // Using document.execCommand for broader compatibility in sandboxed environments
                 const textArea = document.createElement("textarea");
                 textArea.value = textToCopy;
                 document.body.appendChild(textArea);
