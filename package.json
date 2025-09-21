@@ -1,0 +1,8 @@
+{
+  "name": "sneha-basu-portfolio",
+  "version": "1.0.0",
+  "description": "Serverless functions for the portfolio website.",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
