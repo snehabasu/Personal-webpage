@@ -159,6 +159,16 @@ main {
   padding: 0 2px;
   border-radius: 1px;
 }
+.bio-say-hi {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .hero-photo-wrap {
   width: 200px;
   height: 240px;
@@ -812,14 +822,14 @@ footer {
     <p class="hero-subtitle">ex-engineer, pm and vc intern.</p>
     <div class="hero-body">
       <p class="hero-bio">
-        Five years writing Java at <span class="hl">Salesforce</span> taught me how
-        software actually gets shipped. Now I'm at the
-        <span class="hl">MBAi program at Kellogg</span> — a joint MBA + MS in AI —
-        spending this quarter as a VC intern at
-        <span class="hl">Alumni Ventures</span>, looking at early-stage AI and Cryptobets.
-        On the side: a podcast, a few side projects, and an embarrassingly long
-        reading list. I'm curious about everything AI-native, from product to policy to the philosophical. 
-        Always down to chat about any of it specially if you want to be a guest on my Podcast!
+        At <span class="hl">Salesforce</span> I was the engineer on the other side of the PM's table.
+        Five years of that teaches you a lot about what good actually looks like. Now I'm in
+        <span class="hl">Kellogg's MBAi program</span>, a joint MBA and MS in AI, this quarter on
+        the other side of the table as a VC intern at <span class="hl">Alumni Ventures</span>,
+        looking at early-stage AI bets. On the side: a podcast, a few projects in varying states
+        of done, and a lot of time thinking about what AI-native actually means for the communities
+        that don't get a seat in the room. If any of that sounds interesting — or you want to be
+        on the podcast — <button class="bio-say-hi" onclick="toggleHello('hero')">say hi.</button>
       </p>
       <div class="hero-photo-wrap">
         <img src="sneha-basu-photo.jpg" alt="Sneha Basu"
