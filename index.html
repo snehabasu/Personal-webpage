@@ -926,7 +926,7 @@ footer {
         <span class="timeline-tag">school</span>
       </div>
       <div class="timeline-row">
-        <span class="kicker">2022 – 25</span>
+        <span class="kicker">2022 - 25</span>
         <div>
           <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:4px;">
             <span class="timeline-role">Software Engineer II</span>
@@ -938,7 +938,7 @@ footer {
         <span class="timeline-tag">SWE</span>
       </div>
       <div class="timeline-row">
-        <span class="kicker">2020 – 22</span>
+        <span class="kicker">2020 - 22</span>
         <div>
           <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:4px;">
             <span class="timeline-role">Software Engineer I</span>
@@ -1036,45 +1036,30 @@ footer {
     </div>
     <div class="writing-grid">
       <article class="writing-feature">
-        <span class="kicker">featured · apr 2026 · 6 min read</span>
-        <h3 class="writing-feature-title">Evals are the new spec.</h3>
+        <span class="kicker">latest · feb 27 · code&amp;case</span>
+        <h3 class="writing-feature-title">The new gender gap: AI literacy.</h3>
         <p class="writing-feature-body">
-          For ten years, the PM artifact was the PRD. For the next ten, it's going to
-          be the eval set. Here's why I now write evals before I write user
-          stories — and what changes when you do.
+          And why "built with women in mind" is not enough. As AI tools reshape
+          who gets ahead at work, the access gap is hiding in plain sight.
         </p>
-        <a href="#" class="writing-link">read the essay →</a>
+        <a href="https://codeandcase.substack.com/p/the-new-gender-gap-ai-literacy" target="_blank" rel="noopener" class="writing-link">read on substack →</a>
       </article>
 
       <div class="writing-list">
         <span class="kicker">more</span>
-        <a href="#" class="writing-item">
+        <a href="https://codeandcase.substack.com/p/learning-in-the-age-of-ai" target="_blank" rel="noopener" class="writing-item">
           <div>
-            <span class="kicker">feb 28</span>
-            <div class="writing-item-title">Things I miss about being an engineer (and things I don't).</div>
-          </div>
-          <span class="writing-read">4 min</span>
-        </a>
-        <a href="#" class="writing-item">
-          <div>
-            <span class="kicker">jan 09</span>
-            <div class="writing-item-title">What a year of MBAi actually teaches you.</div>
-          </div>
-          <span class="writing-read">8 min</span>
-        </a>
-        <a href="#" class="writing-item">
-          <div>
-            <span class="kicker">nov 22</span>
-            <div class="writing-item-title">Notes on building agents that don't lie.</div>
+            <span class="kicker">feb 13</span>
+            <div class="writing-item-title">Learning in the Age of AI.</div>
           </div>
           <span class="writing-read">5 min</span>
         </a>
-        <a href="#" class="writing-item">
+        <a href="https://codeandcase.substack.com" target="_blank" rel="noopener" class="writing-item">
           <div>
-            <span class="kicker">oct 04</span>
-            <div class="writing-item-title">Why I started a podcast (mostly to make myself listen).</div>
+            <span class="kicker">substack</span>
+            <div class="writing-item-title">More on Code&amp;Case →</div>
           </div>
-          <span class="writing-read">3 min</span>
+          <span class="writing-read">all posts</span>
         </a>
       </div>
     </div>
@@ -1198,39 +1183,28 @@ document.querySelectorAll('#mobile-nav a').forEach(a => {
 
   // Tile definitions (positions are in px, designed for ~900px board width)
   const TILES_DEF = [
-    { id:'t1', x:24,  y:30,  w:230, h:150, rot:-2.2, z:1,
+    { id:'t1', x:24,  y:25,  w:250, h:165, rot:-2.2, z:1,
       bg:'#FFF7E0', fg:'var(--ink)',
-      kicker:'01 · now writing', tag:'essay', titleSize:22,
-      title:'Evals are the new spec.',
-      body:'Draft 3 of an essay on why every PM should write evals like they write user stories.' },
-    { id:'t2', x:270, y:12,  w:250, h:170, rot:1.8,  z:2,
+      kicker:'01 · now writing', tag:'substack', titleSize:20,
+      title:'The new gender gap: AI literacy.',
+      body:'and why "built with women in mind" is not enough — latest on Code&Case.',
+      foot:'codeandcase.substack.com' },
+    { id:'t2', x:295, y:10,  w:260, h:175, rot:1.8,  z:2,
       bg:'var(--ink)', fg:'var(--paper)',
       kicker:'02 · now recording', tag:'', titleSize:22,
       title:'AI, According to Us.',
       body:'Co-host on the Kellogg AI Club podcast — "AI Goes Hollywood" just dropped.',
       foot:'▶  spotify · 24 min' },
-    { id:'t3', x:30,  y:198, w:240, h:170, rot:1.4,  z:1,
-      bg:'var(--accent)', fg:'#FBF7EE',
-      kicker:'03 · now shipping', tag:'', titleSize:22,
-      title:'agent-obs',
-      body:'A local-first tracing dashboard for LLM agents. Treating prompts like distributed systems.',
-      foot:'ts · otel · sqlite' },
-    { id:'t4', x:288, y:200, w:240, h:165, rot:-1.6, z:2,
-      bg:'var(--paper)', fg:'var(--ink)',
-      kicker:'04 · now reading', tag:'', titleSize:22,
-      title:'The Wisdom of Crowds.',
-      body:'+ a stack of agent papers and one suspicious VC memo.',
-      foot:'★ ★ ★ ★ ☆' },
-    { id:'t5', x:540, y:60,  w:200, h:130, rot:3,    z:1,
+    { id:'t3', x:24,  y:215, w:250, h:145, rot:1.4,  z:1,
       bg:'var(--hi)', fg:'var(--ink)',
-      kicker:'05 · now investing', tag:'', titleSize:17,
+      kicker:'03 · now investing', tag:'', titleSize:17,
       title:'VC intern at Alumni Ventures.',
-      foot:"mar – jun ’26" },
-    { id:'t6', x:555, y:220, w:195, h:140, rot:-2.4, z:2,
+      foot:"mar – jun '26" },
+    { id:'t4', x:295, y:210, w:250, h:150, rot:-1.6, z:2,
       bg:'var(--accent2)', fg:'#FBF7EE',
-      kicker:'06 · this summer', tag:'', titleSize:16,
+      kicker:'04 · this summer', tag:'', titleSize:16,
       title:'Heading to Google as a PM intern.',
-      foot:"+ open to ’27 ft" },
+      foot:"+ open to '27 ft" },
   ];
 
   let tiles = TILES_DEF.map(t => ({...t}));
