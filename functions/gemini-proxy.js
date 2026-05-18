@@ -11,20 +11,24 @@ exports.handler = async function(event) {
     const { prompt } = JSON.parse(event.body);
     const apiKey = process.env.GEMINI_API_KEY;
 
-    if (!prompt) {
+    if (!prompt || typeof prompt !== 'string' || prompt.trim().length === 0) {
       return { statusCode: 400, body: JSON.stringify({ error: 'Prompt is required.' }) };
     }
 
+    if (prompt.length > 2000) {
+      return { statusCode: 400, body: JSON.stringify({ error: 'Prompt too long.' }) };
+    }
+
     if (!apiKey) {
-      // This error is for the developer, not the user.
       console.error('GEMINI_API_KEY environment variable not set.');
-      return { statusCode: 500, body: JSON.stringify({ error: 'API key not configured on the server.' }) };
+      return { statusCode: 500, body: JSON.stringify({ error: 'Server configuration error.' }) };
     }
 
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
     const payload = {
       contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { maxOutputTokens: 512 },
     };
 
     // Using node-fetch as 'fetch' might not be available in all Node.js runtimes
@@ -54,7 +58,7 @@ exports.handler = async function(event) {
     console.error('Proxy Error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message }),
+      body: JSON.stringify({ error: 'Internal server error.' }),
     };
   }
 };
