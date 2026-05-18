@@ -642,39 +642,6 @@ main {
   max-width: 540px;
   margin-bottom: 18px;
 }
-.podcast-player {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-.play-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 99px;
-  background: var(--ink);
-  color: var(--paper);
-  font-size: 14px;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-.progress-bar {
-  flex: 1;
-  height: 5px;
-  background: var(--bg);
-  border-radius: 99px;
-  overflow: hidden;
-  max-width: 380px;
-}
-.progress-fill {
-  width: 32%;
-  height: 100%;
-  background: var(--accent);
-}
-.progress-time { font-family: var(--mono); font-size: 11px; color: var(--ink3); }
 .podcast-platforms {
   display: flex;
   gap: 10px;
@@ -838,11 +805,11 @@ footer {
 
   <!-- ── Hero ──────────────────────────────────────────────── -->
   <section id="about">
-    <span class="kicker">evanston, il · open to roles · kellogg '27</span>
+    <span class="kicker">Chicago, IL · Kellogg '27</span>
     <h1 class="hero-heading">
       <em>technical</em> enough to build it,<br><em>business</em> enough to bet on it.
     </h1>
-    <p class="hero-subtitle">ex-engineer, vc intern.</p>
+    <p class="hero-subtitle">ex-engineer, pm and vc intern.</p>
     <div class="hero-body">
       <p class="hero-bio">
         Five years writing Java at <span class="hl">Salesforce</span> taught me how
@@ -1029,11 +996,12 @@ footer {
           With first guest Yashvi Tibrewal on how studios should think about
           AI-native content.
         </p>
-        <div class="podcast-player">
-          <a href="https://open.spotify.com/episode/3YVwAcWcdkcbvZboFmPo2h" target="_blank" rel="noopener" class="play-btn">▶</a>
-          <div class="progress-bar"><div class="progress-fill"></div></div>
-          <span class="progress-time">07:42 / 24:00</span>
-        </div>
+        <iframe
+          src="https://open.spotify.com/embed/episode/3YVwAcWcdkcbvZboFmPo2h?utm_source=generator&theme=0"
+          width="100%" height="152" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy" style="border-radius:10px;margin-bottom:16px;display:block;">
+        </iframe>
         <div class="podcast-platforms">
           <a href="https://open.spotify.com/show/0y5U6RiszpGgwTAT5TcL7L" target="_blank" rel="noopener" class="platform-link">Spotify</a>
           <a href="#" class="platform-link">Apple</a>
