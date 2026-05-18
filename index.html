@@ -208,6 +208,60 @@ main {
   margin-left: auto;
 }
 
+/* ─── Say hello unfurl ──────────────────────────────────── */
+.hello-unfurl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 0.35s ease, opacity 0.25s ease;
+  white-space: nowrap;
+}
+.hello-unfurl.open {
+  max-width: 460px;
+  opacity: 1;
+}
+.hello-email {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink2);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  border-radius: 99px;
+  user-select: all;
+}
+.copy-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 8px 12px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink2);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.copy-btn.copied {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.btn-linkedin {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 8px 14px;
+  border-radius: 99px;
+  border: 1px solid var(--accent2);
+  color: var(--accent2);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-linkedin:hover { background: var(--accent2); color: var(--paper); }
+
 /* ─── Section heading ───────────────────────────────────── */
 .section-head {
   display: flex;
@@ -799,9 +853,14 @@ footer {
       </div>
     </div>
     <div class="hero-ctas">
-      <a href="mailto:sneha.basu@kellogg.northwestern.edu" class="btn-primary">
-        <span class="dot"></span>say hello
-      </a>
+      <button class="btn-primary" id="hero-hello-btn" onclick="toggleHello('hero')">
+        <span class="dot"></span><span id="hero-hello-label">say hello</span>
+      </button>
+      <div class="hello-unfurl" id="hero-unfurl">
+        <span class="hello-email">sneha.basu@kellogg.northwestern.edu</span>
+        <button class="copy-btn" onclick="copyEmail(this)">copy</button>
+        <a href="https://www.linkedin.com/in/sneha-basu/" target="_blank" rel="noopener" class="btn-linkedin">linkedin →</a>
+      </div>
       <a href="Sneha-resume.pdf" class="btn-outline">↓ résumé</a>
       <span class="hero-scroll-hint">✻ scroll for the goods</span>
     </div>
@@ -1085,10 +1144,14 @@ footer {
         specific question. I answer those first.
       </p>
       <div class="contact-links">
-        <a href="mailto:sneha.basu@kellogg.northwestern.edu" class="btn-primary">
-          <span class="dot"></span>email me
-        </a>
-        <a href="https://www.linkedin.com/in/sneha-basu/" target="_blank" rel="noopener" class="btn-outline">linkedin</a>
+        <button class="btn-primary" id="contact-hello-btn" onclick="toggleHello('contact')">
+          <span class="dot"></span><span id="contact-hello-label">email me</span>
+        </button>
+        <div class="hello-unfurl" id="contact-unfurl">
+          <span class="hello-email">sneha.basu@kellogg.northwestern.edu</span>
+          <button class="copy-btn" onclick="copyEmail(this)">copy</button>
+          <a href="https://www.linkedin.com/in/sneha-basu/" target="_blank" rel="noopener" class="btn-linkedin">linkedin →</a>
+        </div>
         <a href="https://github.com/snehabasu" target="_blank" rel="noopener" class="btn-outline">github</a>
         <a href="Sneha-resume.pdf" class="btn-outline">↓ résumé</a>
       </div>
@@ -1104,6 +1167,23 @@ footer {
 </main>
 
 <script>
+// ── Say hello unfurl ──────────────────────────────────────────
+function toggleHello(which) {
+  const unfurl = document.getElementById(which + '-unfurl');
+  const label  = document.getElementById(which + '-hello-label');
+  const isOpen = unfurl.classList.contains('open');
+  unfurl.classList.toggle('open', !isOpen);
+  label.textContent = isOpen ? (which === 'hero' ? 'say hello' : 'email me') : '× close';
+}
+
+function copyEmail(btn) {
+  navigator.clipboard.writeText('sneha.basu@kellogg.northwestern.edu').then(() => {
+    btn.textContent = '✓ copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
 // ── Mobile nav ────────────────────────────────────────────────
 document.getElementById('nav-toggle').addEventListener('click', () => {
   document.getElementById('mobile-nav').classList.toggle('open');
