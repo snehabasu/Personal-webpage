@@ -857,7 +857,7 @@ footer {
         <span class="dot"></span><span id="hero-hello-label">say hello</span>
       </button>
       <div class="hello-unfurl" id="hero-unfurl">
-        <span class="hello-email">sneha.basu@kellogg.northwestern.edu</span>
+        <span class="hello-email" data-e="c25laGEuYmFzdUBrZWxsb2dnLm5vcnRod2VzdGVybi5lZHU="></span>
         <button class="copy-btn" onclick="copyEmail(this)">copy</button>
         <a href="https://www.linkedin.com/in/sneha-basu/" target="_blank" rel="noopener" class="btn-linkedin">linkedin →</a>
       </div>
@@ -1125,15 +1125,15 @@ footer {
     <div class="contact-card">
       <h3 class="contact-title"><em>Curious</em> about something I'm building?</h3>
       <p class="contact-body">
-        The best inbound: introduce yourself, what you're building, and one
-        specific question. I answer those first.
+        The best inbound: introduce yourself, and why you're reaching out. 
+        Whether it's about a project, a potential opportunity, or just to say hi — I read and appreciate every message. (Also open to podcast guests!)
       </p>
       <div class="contact-links">
         <button class="btn-primary" id="contact-hello-btn" onclick="toggleHello('contact')">
           <span class="dot"></span><span id="contact-hello-label">email me</span>
         </button>
         <div class="hello-unfurl" id="contact-unfurl">
-          <span class="hello-email">sneha.basu@kellogg.northwestern.edu</span>
+          <span class="hello-email" data-e="c25laGEuYmFzdUBrZWxsb2dnLm5vcnRod2VzdGVybi5lZHU="></span>
           <button class="copy-btn" onclick="copyEmail(this)">copy</button>
           <a href="https://www.linkedin.com/in/sneha-basu/" target="_blank" rel="noopener" class="btn-linkedin">linkedin →</a>
         </div>
@@ -1161,8 +1161,13 @@ function toggleHello(which) {
   label.textContent = isOpen ? (which === 'hero' ? 'say hello' : 'email me') : '× close';
 }
 
+// Populate email spans from base64 at runtime — keeps plain address out of HTML source
+document.querySelectorAll('[data-e]').forEach(el => {
+  el.textContent = atob(el.dataset.e);
+});
+
 function copyEmail(btn) {
-  navigator.clipboard.writeText('sneha.basu@kellogg.northwestern.edu').then(() => {
+  navigator.clipboard.writeText(atob('c25laGEuYmFzdUBrZWxsb2dnLm5vcnRod2VzdGVybi5lZHU=')).then(() => {
     btn.textContent = '✓ copied!';
     btn.classList.add('copied');
     setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 2000);
