@@ -6,7 +6,7 @@
 <title>Sneha Basu — builder · pm · kellogg '27</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 /* ─── Reset & base ─────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,6 +27,7 @@ html { scroll-behavior: smooth; }
   --serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
   --sans:  'Inter', -apple-system, system-ui, sans-serif;
   --mono:  'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --pixel: 'Press Start 2P', 'JetBrains Mono', monospace;
 }
 
 body {
@@ -300,6 +301,213 @@ main {
   font-size: 36px;
   letter-spacing: -0.6px;
   color: var(--ink);
+}
+
+/* ─── Origins game ──────────────────────────────────────── */
+#origins {
+  margin-top: 72px;
+  padding-top: 36px;
+  border-top: 1px dashed var(--line);
+}
+.origins-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap; margin-bottom: 18px;
+}
+.origins-title {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(36px, 4.4vw, 52px);
+  letter-spacing: -1px; color: var(--ink); line-height: 1.02;
+}
+.origins-title em { font-style: italic; color: var(--accent); }
+.origins-sub {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--ink3); letter-spacing: 0.6px;
+  max-width: 260px; text-align: right; line-height: 1.5;
+}
+.game-frame {
+  position: relative; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 12px;
+  overflow: hidden; box-shadow: 0 14px 32px rgba(20,12,4,0.10);
+}
+.game-screen {
+  position: relative; width: 100%; aspect-ratio: 16 / 7;
+  background: linear-gradient(180deg, #F4ECD3 0%, #E9DCB9 55%, #DAC9A0 100%);
+  overflow: hidden;
+}
+.game-screen.dusk {
+  background: linear-gradient(180deg, #F2C9A1 0%, #E89C7A 45%, #C16A55 100%);
+}
+#passport-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  image-rendering: pixelated; image-rendering: crisp-edges;
+}
+.game-overlay { position: absolute; inset: 0; pointer-events: none; }
+.game-hud {
+  position: absolute; top: 12px; left: 14px;
+  display: flex; align-items: center; gap: 10px; pointer-events: auto;
+}
+.hud-tag {
+  font-family: var(--pixel); font-size: 9px;
+  background: rgba(27,24,18,0.85); color: var(--paper);
+  padding: 6px 9px; border-radius: 3px; letter-spacing: 0.5px;
+  border: 2px solid var(--paper); box-shadow: 0 0 0 1px rgba(27,24,18,0.6);
+}
+.progress-pips {
+  display: flex; gap: 4px;
+  background: rgba(250,246,236,0.92); padding: 6px 8px;
+  border-radius: 3px; border: 1px solid var(--line);
+}
+.pip {
+  width: 10px; height: 10px;
+  border: 1.5px solid var(--ink2); background: transparent;
+  border-radius: 50%; transition: background 0.2s, transform 0.2s;
+}
+.pip.done { background: var(--accent); border-color: var(--accent); }
+.pip.active { transform: scale(1.25); box-shadow: 0 0 0 2px rgba(180,80,50,0.25); }
+.speech-bubble {
+  position: absolute; background: var(--paper);
+  border: 2px solid var(--ink); padding: 10px 14px 12px;
+  border-radius: 6px; font-family: var(--pixel); font-size: 10px;
+  line-height: 1.7; color: var(--ink); max-width: 240px;
+  opacity: 0; transform: translateY(8px) scale(0.96);
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: auto; box-shadow: 4px 4px 0 0 var(--ink);
+}
+.speech-bubble.show { opacity: 1; transform: translateY(0) scale(1); }
+.speech-bubble::after {
+  content: ''; position: absolute; bottom: -10px; left: 26px;
+  width: 0; height: 0;
+  border-left: 10px solid transparent; border-right: 10px solid transparent;
+  border-top: 10px solid var(--ink);
+}
+.speech-bubble::before {
+  content: ''; position: absolute; bottom: -7px; left: 28px;
+  width: 0; height: 0;
+  border-left: 8px solid transparent; border-right: 8px solid transparent;
+  border-top: 8px solid var(--paper); z-index: 1;
+}
+.speech-place {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 1.2px;
+  color: var(--accent); margin-bottom: 6px; text-transform: uppercase;
+}
+.speech-stamp-btn {
+  display: inline-block; margin-top: 10px;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--pixel); font-size: 9px;
+  padding: 7px 10px 8px; border: none; border-radius: 3px;
+  cursor: pointer; letter-spacing: 0.6px; box-shadow: 0 3px 0 0 #000;
+}
+.speech-stamp-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 0 #000; }
+.game-controls {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px; background: var(--paper);
+  border-top: 1px solid var(--line); flex-wrap: wrap;
+}
+.dpad {
+  display: flex; background: var(--bg);
+  border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+}
+.dpad button {
+  background: transparent; border: none; padding: 10px 16px;
+  font-family: var(--pixel); font-size: 11px; color: var(--ink);
+  cursor: pointer; user-select: none; touch-action: manipulation;
+}
+.dpad button + button { border-left: 1px solid var(--line); }
+.dpad button:active, .dpad button.held { background: var(--ink); color: var(--paper); }
+.control-hint { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: 0.6px; }
+.control-spacer { flex: 1; }
+.icon-btn {
+  background: var(--bg); border: 1px solid var(--line); color: var(--ink2);
+  width: 34px; height: 34px; border-radius: 6px; cursor: pointer;
+  font-family: var(--mono); font-size: 12px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.icon-btn:hover { color: var(--ink); }
+.icon-btn.muted { color: var(--ink3); opacity: 0.6; }
+.passport {
+  background: var(--paper); border-top: 1px solid var(--line);
+  padding: 18px 20px 22px;
+}
+.passport-top {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 14px; gap: 12px; flex-wrap: wrap;
+}
+.passport-label {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink3);
+}
+.passport-count { font-family: var(--mono); font-size: 11px; color: var(--ink2); }
+.stamps-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.stamp-slot {
+  position: relative; aspect-ratio: 1 / 1;
+  border: 1.5px dashed var(--line); border-radius: 8px;
+  background: rgba(255,255,255,0.4);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 8px; overflow: hidden;
+}
+.stamp-slot.filled { border-style: solid; border-color: var(--line); background: var(--paper); }
+.slot-num {
+  position: absolute; top: 6px; left: 8px;
+  font-family: var(--mono); font-size: 9px; color: var(--ink3); letter-spacing: 0.5px;
+}
+.slot-placeholder { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.8px; }
+.stamp-mark {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: rotate(var(--rot, -6deg)) scale(2.2);
+  transition: opacity 0.25s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.stamp-slot.filled .stamp-mark { opacity: 1; transform: rotate(var(--rot, -6deg)) scale(1); }
+.stamp-mark svg { width: 86%; height: 86%; }
+.passport-readout {
+  margin-top: 16px; padding: 12px 14px;
+  background: var(--bg); border-radius: 8px; border: 1px solid var(--line);
+  min-height: 60px; display: flex; flex-direction: column; gap: 4px;
+}
+.readout-place { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 1.4px; text-transform: uppercase; }
+.readout-text { font-family: var(--serif); font-size: 19px; color: var(--ink); line-height: 1.3; }
+.readout-empty { font-family: var(--mono); font-size: 12px; color: var(--ink3); font-style: italic; }
+.game-options {
+  display: flex; align-items: center; gap: 18px; margin-top: 14px;
+  font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: 0.6px;
+  flex-wrap: wrap;
+}
+.opt-group { display: flex; align-items: center; gap: 6px; }
+.opt-group label { color: var(--ink3); text-transform: uppercase; letter-spacing: 1.2px; }
+.opt-pills {
+  display: flex; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 99px; overflow: hidden;
+}
+.opt-pills button {
+  background: transparent; border: none; padding: 5px 11px;
+  font-family: var(--mono); font-size: 10px; color: var(--ink2);
+  letter-spacing: 0.6px; cursor: pointer;
+}
+.opt-pills button + button { border-left: 1px solid var(--line); }
+.opt-pills button.on { background: var(--ink); color: var(--paper); }
+.complete-banner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(27,24,18,0.78);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s ease; z-index: 5;
+}
+.complete-banner.show { opacity: 1; pointer-events: auto; }
+.complete-inner {
+  background: var(--paper); border: 3px solid var(--ink);
+  padding: 28px 36px; border-radius: 6px; text-align: center;
+  box-shadow: 6px 6px 0 0 var(--ink); max-width: 80%;
+}
+.complete-inner h3 {
+  font-family: var(--pixel); font-size: 14px;
+  margin-bottom: 12px; line-height: 1.6; color: var(--accent);
+}
+.complete-inner p { font-family: var(--serif); font-size: 22px; line-height: 1.25; color: var(--ink); }
+.complete-inner button {
+  margin-top: 16px; background: var(--ink); color: var(--paper);
+  font-family: var(--pixel); font-size: 9px;
+  padding: 9px 14px; border: none; border-radius: 3px;
+  cursor: pointer; letter-spacing: 0.6px;
 }
 
 /* ─── Now Building (draggable board) ────────────────────── */
@@ -760,6 +968,11 @@ footer {
 
   .tile-board { height: 520px; }
 
+  .origins-sub { text-align: left; max-width: none; }
+  .stamps-row { gap: 8px; }
+  .stamp-slot { padding: 4px; }
+  .speech-bubble { font-size: 9px; max-width: 200px; }
+
   .projects-grid,
   .writing-grid {
     grid-template-columns: 1fr;
@@ -792,6 +1005,7 @@ footer {
   </div>
   <nav>
     <a href="#about">about</a>
+    <a href="#origins">origins</a>
     <a href="#now">now</a>
     <a href="#work">work</a>
     
@@ -803,9 +1017,9 @@ footer {
 </header>
 <div class="mobile-nav" id="mobile-nav">
   <a href="#about">about</a>
+  <a href="#origins">origins</a>
   <a href="#now">now</a>
   <a href="#work">work</a>
-  
   <a href="#writing">writing</a>
   <a href="#podcast">podcast</a>
   <a href="#contact">contact</a>
@@ -848,6 +1062,92 @@ footer {
       <a href="Sneha-resume.pdf" class="btn-outline">↓ résumé</a>
       <span class="hero-scroll-hint">✻ scroll for the goods</span>
     </div>
+
+    <!-- ── Origins game ──────────────────────────────────────── -->
+    <div id="origins">
+      <div class="origins-head">
+        <h2 class="origins-title">Where I'm from <em>(it's complicated)</em>.</h2>
+        <p class="origins-sub">A tiny side-scroller.<br>5 cities. 1 carry-on. Collect them all.</p>
+      </div>
+
+      <div class="game-frame">
+        <div class="game-screen" id="game-screen">
+          <canvas id="passport-canvas"></canvas>
+          <div class="game-overlay" id="game-overlay">
+            <div class="game-hud">
+              <span class="hud-tag" id="hud-tag">P1 · SNEHA</span>
+              <div class="progress-pips" id="progress-pips">
+                <div class="pip active"></div>
+                <div class="pip"></div>
+                <div class="pip"></div>
+                <div class="pip"></div>
+                <div class="pip"></div>
+              </div>
+            </div>
+            <div class="speech-bubble" id="speech">
+              <div class="speech-place" id="speech-place"></div>
+              <div id="speech-text"></div>
+              <button class="speech-stamp-btn" id="speech-stamp-btn">STAMP IT →</button>
+            </div>
+          </div>
+          <div class="complete-banner" id="complete-banner">
+            <div class="complete-inner">
+              <h3>★ ALL STAMPS COLLECTED ★</h3>
+              <p id="complete-msg">five cities, one carry-on,<br>one engineer-turned-PM.</p>
+              <button id="restart-btn">PLAY AGAIN</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-controls">
+          <div class="dpad">
+            <button id="walk-left" aria-label="Walk left">◀</button>
+            <button id="walk-right" aria-label="Walk right">▶</button>
+          </div>
+          <span class="control-hint">← → keys, or tap. Press <strong>SPACE</strong> at a stop to stamp.</span>
+          <div class="control-spacer"></div>
+          <button class="icon-btn" id="sound-toggle" aria-label="Toggle sound" title="Toggle sound">♪</button>
+        </div>
+
+        <div class="passport">
+          <div class="passport-top">
+            <span class="passport-label">Passport · Sneha Basu</span>
+            <span class="passport-count" id="passport-count">0 / 5 stamps</span>
+          </div>
+          <div class="stamps-row" id="stamps-row"></div>
+          <div class="passport-readout" id="readout">
+            <span class="readout-empty">Walk right to your first stop — Kolkata, India.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-options">
+        <div class="opt-group">
+          <label>Character</label>
+          <div class="opt-pills" data-opt="character">
+            <button data-val="girl" class="on">pixel-me</button>
+            <button data-val="suitcase">suitcase</button>
+            <button data-val="plane">paper plane</button>
+          </div>
+        </div>
+        <div class="opt-group">
+          <label>Voice</label>
+          <div class="opt-pills" data-opt="copy">
+            <button data-val="warm" class="on">warm</button>
+            <button data-val="witty">witty</button>
+            <button data-val="minimal">minimal</button>
+          </div>
+        </div>
+        <div class="opt-group">
+          <label>Time</label>
+          <div class="opt-pills" data-opt="time">
+            <button data-val="day" class="on">day</button>
+            <button data-val="dusk">dusk</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- ── Now Building ──────────────────────────────────────── -->
@@ -1235,5 +1535,6 @@ document.querySelectorAll('#mobile-nav a').forEach(a => {
   render();
 })();
 </script>
+<script src="passport-game.js"></script>
 </body>
 </html>
