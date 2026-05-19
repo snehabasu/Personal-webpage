@@ -64,25 +64,11 @@
   // Copy in three voices
   const COPY = {
     warm: {
-      kolkata: { place: 'KOLKATA · INDIA',        text: "Born here. Grandma's fish curry." },
-      oman:    { place: 'MUSCAT · OMAN',          text: "Grew up here. Moved at 4, left at 18. The Arabian Sea was my backyard." },
+      kolkata: { place: 'KOLKATA · INDIA',        text: "Born here, left at 4. Still come back for family — and a very good kathi roll." },
+      oman:    { place: 'MUSCAT · OMAN',          text: "Grew up here. Moved at 4, left at 18. The place I actually call home." },
       purdue:  { place: 'WEST LAFAYETTE · IN',    text: "Four years at Purdue. Where the engineering brain got installed." },
-      sf:      { place: 'SAN FRANCISCO · CA',     text: "Five years at Salesforce. Fog, hills, first apartment, first ship." },
-      chicago: { place: 'CHICAGO · IL',           text: "Now. Kellogg, lake-effect winters, figuring out what's next." },
-    },
-    witty: {
-      kolkata: { place: 'KOLKATA · INDIA',        text: "the original homebase. grandma's fish curry > everything." },
-      oman:    { place: 'MUSCAT · OMAN',          text: "marhaba. yes, i count to ten in arabic. no, i'm not arab." },
-      purdue:  { place: 'WEST LAFAYETTE · IN',    text: "corn, basketball, CS degree — in that order." },
-      sf:      { place: 'SAN FRANCISCO · CA',     text: "shipped code at salesforce. cried at the rent." },
-      chicago: { place: 'CHICAGO · IL',           text: "kellogg MBAi. someone please explain wind chill." },
-    },
-    minimal: {
-      kolkata: { place: 'KOLKATA',    text: "born. bengali. always." },
-      oman:    { place: 'MUSCAT',     text: "raised. arabic, sea, sun." },
-      purdue:  { place: 'PURDUE',     text: "boilermaker. four years." },
-      sf:      { place: 'SF',         text: "salesforce. five years." },
-      chicago: { place: 'CHICAGO',    text: "kellogg. mbai. now." },
+      sf:      { place: 'SAN FRANCISCO · CA',     text: "Five years at Salesforce. Fog, hills, first apartment, first job I loved." },
+      chicago: { place: 'CHICAGO · IL',           text: "Here now. Kellogg, dinner parties, and figuring out what comes next." },
     },
   };
 
