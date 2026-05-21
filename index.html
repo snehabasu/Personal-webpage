@@ -817,6 +817,11 @@ main {
 
 /* ─── Podcast ───────────────────────────────────────────── */
 #podcast { margin-bottom: 96px; }
+audio {
+  width: 100%; height: 40px; display: block;
+  border-radius: 8px; margin-bottom: 16px;
+  accent-color: var(--accent);
+}
 .podcast-card {
   background: var(--paper);
   border-radius: 14px;
@@ -1288,42 +1293,17 @@ footer {
         <img src="podcast-cover.jpg" alt="AI, According to Us">
       </div>
       <div>
-        <span class="kicker">ep 7 · new · 24 min · may 6</span>
-        <h3 class="podcast-ep-title">AI Goes Hollywood.</h3>
+        <span class="kicker" id="pod-kicker">loading…</span>
+        <h3 class="podcast-ep-title" id="pod-title"></h3>
         <div class="podcast-show-name"><em>AI, According to Us</em> · the Kellogg AI Club podcast</div>
-        <p class="podcast-desc">
-          On YouTube's likeness detection, the rise of deepfakes, and what it means
-          when platforms start taking responsibility for protecting creators.
-          With first guest Yashvi Tibrewal on how studios should think about
-          AI-native content.
-        </p>
-        <iframe
-          src="https://open.spotify.com/embed/episode/3YVwAcWcdkcbvZboFmPo2h?utm_source=generator&theme=0"
-          width="100%" height="152" frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy" style="border-radius:10px;margin-bottom:16px;display:block;">
-        </iframe>
+        <p class="podcast-desc" id="pod-desc"></p>
+        <audio id="pod-audio" controls preload="none"></audio>
         <div class="podcast-platforms">
           <a href="https://open.spotify.com/show/0y5U6RiszpGgwTAT5TcL7L" target="_blank" rel="noopener" class="platform-link">Spotify</a>
         </div>
       </div>
     </div>
-    <div class="podcast-ep-list">
-      <a href="https://open.spotify.com/episode/6ixZeIGSwrd4aeTY6WwsZp" target="_blank" rel="noopener" class="ep-card">
-        <div class="ep-meta">
-          <span class="kicker">EP 06</span>
-          <span class="ep-meta-right">apr 15 · 15 min</span>
-        </div>
-        <div class="ep-title">Keeping up with April 2026</div>
-      </a>
-      <a href="https://open.spotify.com/show/0y5U6RiszpGgwTAT5TcL7L" target="_blank" rel="noopener" class="ep-card">
-        <div class="ep-meta">
-          <span class="kicker">EP 05</span>
-          <span class="ep-meta-right">see all episodes</span>
-        </div>
-        <div class="ep-title">More from the AI Club archive →</div>
-      </a>
-    </div>
+    <div class="podcast-ep-list" id="pod-ep-list"></div>
   </section>
 
   <!-- ── Contact ────────────────────────────────────────────── -->
@@ -1525,6 +1505,57 @@ document.querySelectorAll('#mobile-nav a').forEach(a => {
   });
 
   render();
+})();
+
+// ── Dynamic podcast from RSS ──────────────────────────────
+(async function () {
+  function fmtDuration(d) {
+    if (!d) return '';
+    const parts = d.split(':');
+    const mins = parts.length === 3 ? parseInt(parts[1]) : parseInt(parts[0]);
+    return `${mins} min`;
+  }
+  function fmtDate(d) {
+    if (!d) return '';
+    return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toLowerCase();
+  }
+  function truncate(str, n) {
+    if (!str || str.length <= n) return str;
+    return str.slice(0, str.lastIndexOf(' ', n)) + '…';
+  }
+
+  try {
+    const res = await fetch('/.netlify/functions/rss-feed');
+    if (!res.ok) throw new Error();
+    const eps = await res.json();
+    if (!Array.isArray(eps) || !eps.length) throw new Error();
+
+    const latest = eps[0];
+    const rest   = eps.slice(1);
+
+    document.getElementById('pod-kicker').textContent =
+      `ep ${latest.episode} · new · ${fmtDuration(latest.duration)} · ${fmtDate(latest.pubDate)}`;
+    document.getElementById('pod-title').textContent = latest.title;
+    document.getElementById('pod-desc').textContent  = truncate(latest.desc, 240);
+    document.getElementById('pod-audio').src         = latest.audioUrl;
+
+    const epList = document.getElementById('pod-ep-list');
+    epList.innerHTML = rest.map(ep => `
+      <div class="ep-card">
+        <div class="ep-meta">
+          <span class="kicker">EP ${String(ep.episode).padStart(2, '0')}</span>
+          <span class="ep-meta-right">${fmtDate(ep.pubDate)} · ${fmtDuration(ep.duration)}</span>
+        </div>
+        <div class="ep-title">${ep.title}</div>
+      </div>
+    `).join('') + `
+      <a href="https://open.spotify.com/show/0y5U6RiszpGgwTAT5TcL7L" target="_blank" rel="noopener" class="ep-card">
+        <div class="ep-meta"><span class="kicker">all eps</span></div>
+        <div class="ep-title">More from the archive →</div>
+      </a>`;
+  } catch (_) {
+    // silently leave the loading state — doesn't break the page
+  }
 })();
 </script>
 <script src="passport-game.js"></script>
