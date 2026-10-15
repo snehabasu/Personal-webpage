@@ -1401,12 +1401,19 @@ document.querySelectorAll('#mobile-nav a').forEach(a => {
       title:'RL for my game.',
       body:'Training an agent with reinforcement learning to play a game I\'m building.',
       foot:'in progress' },
+    { id:'t7', x:24,  y:215, w:250, h:170, rot:-1.2, z:1,
+      bg:'#FBE3D6', fg:'var(--ink)',
+      kicker:'05 · mbai capstone', tag:'AI/ML', titleSize:17,
+      title:'Catching novel issues before they become catastrophic.',
+      body:'Working on an AI/ML project with a large healthcare company as part of my MBAi capstone.',
+      foot:'in progress' },
   ];
 
   // On narrow boards there is no third column, so wrap into two columns
   if (board.clientWidth < 620) {
-    const pos = { t6: [24, 215], t4: [295, 215] };
+    const pos = { t6: [24, 215], t4: [295, 215], t7: [24, 385] };
     TILES_DEF.forEach(t => { if (pos[t.id]) [t.x, t.y] = pos[t.id]; });
+    board.style.height = '580px';
   }
 
   let tiles = TILES_DEF.map(t => ({...t}));
