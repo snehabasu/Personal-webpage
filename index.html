@@ -1384,26 +1384,21 @@ document.querySelectorAll('#mobile-nav a').forEach(a => {
       title:'AI, According to Us.',
       body:'Co-host on the Kellogg AI Club podcast — "AI Goes Hollywood" just dropped.',
       foot:'▶  spotify · 24 min' },
-    { id:'t4', x:295, y:215, w:250, h:150, rot:-1.6, z:2,
-      bg:'var(--accent2)', fg:'#FBF7EE',
-      kicker:"02 · summer '26", tag:'', titleSize:16,
-      title:'PM intern at Google.',
-      foot:"Looking for full time Product management roles" },
     { id:'t5', x:295, y:10,  w:250, h:165, rot:1.2,  z:1,
       bg:'#E4EEE6', fg:'var(--ink)',
-      kicker:'03 · now trading', tag:'agent', titleSize:19,
+      kicker:'02 · now trading', tag:'agent', titleSize:19,
       title:'A stock trading agent.',
       body:'Building an AI agent that researches the market and makes trading decisions.',
       foot:'in progress' },
     { id:'t6', x:575, y:25,  w:250, h:150, rot:-1.8, z:2,
       bg:'#E6E2F2', fg:'var(--ink)',
-      kicker:'04 · now training', tag:'RL', titleSize:18,
+      kicker:'03 · now training', tag:'RL', titleSize:18,
       title:'RL for my game.',
       body:'Training an agent with reinforcement learning to play a game I\'m building.',
       foot:'in progress' },
     { id:'t7', x:24,  y:215, w:250, h:170, rot:-1.2, z:1,
       bg:'#FBE3D6', fg:'var(--ink)',
-      kicker:'05 · mbai capstone', tag:'AI/ML', titleSize:17,
+      kicker:'04 · mbai capstone', tag:'AI/ML', titleSize:17,
       title:'Catching novel issues before they become catastrophic.',
       body:'Working on an AI/ML project with a large healthcare company as part of my MBAi capstone.',
       foot:'in progress' },
@@ -1411,9 +1406,8 @@ document.querySelectorAll('#mobile-nav a').forEach(a => {
 
   // On narrow boards there is no third column, so wrap into two columns
   if (board.clientWidth < 620) {
-    const pos = { t6: [24, 215], t4: [295, 215], t7: [24, 385] };
+    const pos = { t6: [24, 215], t7: [295, 215] };
     TILES_DEF.forEach(t => { if (pos[t.id]) [t.x, t.y] = pos[t.id]; });
-    board.style.height = '580px';
   }
 
   let tiles = TILES_DEF.map(t => ({...t}));
