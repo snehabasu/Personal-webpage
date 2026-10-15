@@ -20,19 +20,19 @@
 
   // Palette (matches site)
   const COL = {
-    skyTop:   '#F4ECD3',
-    skyMid:   '#E9DCB9',
-    skyBot:   '#DAC9A0',
-    duskTop:  '#F2C9A1',
-    duskMid:  '#E89C7A',
-    duskBot:  '#C16A55',
-    ground1:  '#C9B789',
-    ground2:  '#B19E70',
-    ground3:  '#8B7A52',
-    ink:      '#1B1812',
-    ink2:     '#3A352B',
-    ink3:     '#7A715D',
-    paper:    '#FAF6EC',
+    skyTop:   '#F3F1EA',
+    skyMid:   '#E8ECDB',
+    skyBot:   '#D7E1C2',
+    duskTop:  '#F3D9CF',
+    duskMid:  '#E7AFAE',
+    duskBot:  '#B97C8A',
+    ground1:  '#B5C38F',
+    ground2:  '#93A66B',
+    ground3:  '#6B7F48',
+    ink:      '#1E221D',
+    ink2:     '#474C44',
+    ink3:     '#676C61',
+    paper:    '#FBFAF6',
     brick:    '#B14B36',
     blue:     '#3D6FB5',
     gold:     '#D4A537',
@@ -40,10 +40,10 @@
     plum:     '#7C3F5B',
     skin:     '#E8C19F',
     hair:     '#231009',
-    shirt:    '#A73F2C',
+    shirt:    '#F0559A',
     pants:    '#2D3142',
-    bag:      '#D4A537',
-    cloud:    '#FBF6E6',
+    bag:      '#B8976A',
+    cloud:    '#FBFAF6',
   };
 
   // Pixel helper
@@ -201,7 +201,7 @@
       px(x + 4,      cl.y + 2, cl.w - 8, 4, COL.cloud);
       px(x + 8,      cl.y - 2, cl.w - 16, 4, COL.cloud);
       // shadow line
-      px(x,          cl.y + 10, cl.w, 1, '#E9DDB7');
+      px(x,          cl.y + 10, cl.w, 1, '#DDE5C9');
     });
   }
 
@@ -209,7 +209,7 @@
     // Mid parallax: 0.45x
     const offset = (cam * 0.45) | 0;
     const baseY = GROUND_Y - 40;
-    const dark = isDusk() ? '#9C4F4A' : '#B9A371';
+    const dark = isDusk() ? '#9C5F6E' : '#A9B98A';
     // Repeating soft hills
     const hills = [80, 280, 480, 680, 880, 1080, 1280];
     hills.forEach((hx) => {
@@ -948,11 +948,11 @@
         </defs>
         <circle cx="50" cy="50" r="44" stroke="${c}" stroke-width="3" fill="none" opacity="0.85"/>
         <circle cx="50" cy="50" r="38" stroke="${c}" stroke-width="1.5" fill="none" opacity="0.8"/>
-        <text font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" fill="${c}" letter-spacing="1.5">
+        <text font-family="Zen Kaku Gothic New, sans-serif" font-size="9" font-weight="700" fill="${c}" letter-spacing="1.5">
           <textPath href="#top-${stop.id}" startOffset="50%" text-anchor="middle">★ ${L.line1} ★</textPath>
         </text>
-        <text x="50" y="54" text-anchor="middle" font-family="Instrument Serif, serif" font-size="14" fill="${c}" font-style="italic">${L.line2}</text>
-        <text x="50" y="68" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="${c}" letter-spacing="0.8" opacity="0.85">${stampDate(stop.id)}</text>
+        <text x="50" y="54" text-anchor="middle" font-family="Shippori Mincho, serif" font-size="13" font-weight="600" fill="${c}">${L.line2}</text>
+        <text x="50" y="68" text-anchor="middle" font-family="Zen Kaku Gothic New, sans-serif" font-size="6" fill="${c}" letter-spacing="0.8" opacity="0.85">${stampDate(stop.id)}</text>
         <line x1="22" y1="78" x2="78" y2="78" stroke="${c}" stroke-width="1" opacity="0.5"/>
       </svg>
     `;
@@ -1076,8 +1076,8 @@
   const soundBtn = document.getElementById('sound-toggle');
   soundBtn.addEventListener('click', () => {
     state.sound = !state.sound;
-    soundBtn.textContent = state.sound ? '♪' : '×';
     soundBtn.classList.toggle('muted', !state.sound);
+    soundBtn.setAttribute('aria-pressed', String(state.sound));
     if (state.sound) ensureAudio();
   });
 
