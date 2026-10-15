@@ -1400,7 +1400,27 @@ document.querySelectorAll('#mobile-nav a').forEach(a => {
       kicker:"04 · summer '26", tag:'', titleSize:16,
       title:'PM intern at Google.',
       foot:"Looking for full time Product management roles" },
+    { id:'t5', x:575, y:25,  w:250, h:165, rot:1.2,  z:1,
+      bg:'#E4EEE6', fg:'var(--ink)',
+      kicker:'05 · now trading', tag:'agent', titleSize:19,
+      title:'A stock trading agent.',
+      body:'Building an AI agent that researches the market and makes trading decisions.',
+      foot:'in progress' },
+    { id:'t6', x:575, y:215, w:250, h:150, rot:-1.8, z:2,
+      bg:'#E6E2F2', fg:'var(--ink)',
+      kicker:'06 · now training', tag:'RL', titleSize:18,
+      title:'RL for my game.',
+      body:'Training an agent with reinforcement learning to play a game I\'m building.',
+      foot:'in progress' },
   ];
+
+  // On narrow boards there is no third column, so stack the new tiles underneath
+  if (board.clientWidth < 620) {
+    const t5 = TILES_DEF.find(t => t.id === 't5'), t6 = TILES_DEF.find(t => t.id === 't6');
+    t5.x = 24;  t5.y = 385;
+    t6.x = 295; t6.y = 385;
+    board.style.height = '580px';
+  }
 
   let tiles = TILES_DEF.map(t => ({...t}));
 
