@@ -1378,48 +1378,35 @@ document.querySelectorAll('#mobile-nav a').forEach(a => {
 
   // Tile definitions (positions are in px, designed for ~900px board width)
   const TILES_DEF = [
-    { id:'t1', x:24,  y:25,  w:250, h:165, rot:-2.2, z:1,
-      bg:'#FFF7E0', fg:'var(--ink)',
-      kicker:'01 · now writing', tag:'substack', titleSize:20,
-      title:'The new gender gap: AI literacy.',
-      body:'and why "built with women in mind" is not enough — latest on Code&Case.',
-      foot:'codeandcase.substack.com' },
-    { id:'t2', x:295, y:10,  w:260, h:175, rot:1.8,  z:2,
+    { id:'t2', x:24,  y:25,  w:260, h:175, rot:1.8,  z:2,
       bg:'var(--ink)', fg:'var(--paper)',
-      kicker:'02 · now recording', tag:'', titleSize:22,
+      kicker:'01 · now recording', tag:'', titleSize:22,
       title:'AI, According to Us.',
       body:'Co-host on the Kellogg AI Club podcast — "AI Goes Hollywood" just dropped.',
       foot:'▶  spotify · 24 min' },
-    { id:'t3', x:24,  y:215, w:250, h:145, rot:1.4,  z:1,
-      bg:'var(--hi)', fg:'var(--ink)',
-      kicker:'03 · now investing', tag:'', titleSize:17,
-      title:'VC intern at Alumni Ventures.',
-      foot:"mar – jun '26" },
-    { id:'t4', x:295, y:210, w:250, h:150, rot:-1.6, z:2,
+    { id:'t4', x:295, y:215, w:250, h:150, rot:-1.6, z:2,
       bg:'var(--accent2)', fg:'#FBF7EE',
-      kicker:"04 · summer '26", tag:'', titleSize:16,
+      kicker:"02 · summer '26", tag:'', titleSize:16,
       title:'PM intern at Google.',
       foot:"Looking for full time Product management roles" },
-    { id:'t5', x:575, y:25,  w:250, h:165, rot:1.2,  z:1,
+    { id:'t5', x:295, y:10,  w:250, h:165, rot:1.2,  z:1,
       bg:'#E4EEE6', fg:'var(--ink)',
-      kicker:'05 · now trading', tag:'agent', titleSize:19,
+      kicker:'03 · now trading', tag:'agent', titleSize:19,
       title:'A stock trading agent.',
       body:'Building an AI agent that researches the market and makes trading decisions.',
       foot:'in progress' },
-    { id:'t6', x:575, y:215, w:250, h:150, rot:-1.8, z:2,
+    { id:'t6', x:575, y:25,  w:250, h:150, rot:-1.8, z:2,
       bg:'#E6E2F2', fg:'var(--ink)',
-      kicker:'06 · now training', tag:'RL', titleSize:18,
+      kicker:'04 · now training', tag:'RL', titleSize:18,
       title:'RL for my game.',
       body:'Training an agent with reinforcement learning to play a game I\'m building.',
       foot:'in progress' },
   ];
 
-  // On narrow boards there is no third column, so stack the new tiles underneath
+  // On narrow boards there is no third column, so wrap into two columns
   if (board.clientWidth < 620) {
-    const t5 = TILES_DEF.find(t => t.id === 't5'), t6 = TILES_DEF.find(t => t.id === 't6');
-    t5.x = 24;  t5.y = 385;
-    t6.x = 295; t6.y = 385;
-    board.style.height = '580px';
+    const pos = { t6: [24, 215], t4: [295, 215] };
+    TILES_DEF.forEach(t => { if (pos[t.id]) [t.x, t.y] = pos[t.id]; });
   }
 
   let tiles = TILES_DEF.map(t => ({...t}));
