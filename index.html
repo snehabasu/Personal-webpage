@@ -347,7 +347,7 @@ main {
 .copy-btn.copied { background: var(--matcha-deep); border-color: var(--matcha-deep); color: var(--paper); }
 
 /* ─── Origins game ──────────────────────────────────────── */
-#origins { margin-top: 128px; }
+#origins { margin-bottom: 136px; }
 .origins-title em { font-style: normal; color: var(--sumi-3); font-weight: 400; }
 .game-frame {
   position: relative;
@@ -974,8 +974,8 @@ footer {
   html { scroll-padding-top: 72px; }
 
   main { padding: 48px 20px 0; }
-  #about, #work, #writing, #podcast, #now { margin-bottom: 96px; }
-  #origins { margin-top: 88px; }
+  #about, #work, #writing, #podcast, #now, #origins { margin-bottom: 96px; }
+
   #now { padding-block: 72px 80px; }
   #contact { padding-block: 88px 96px; }
 
@@ -1037,8 +1037,8 @@ footer {
   </div>
   <nav aria-label="Sections">
     <a href="#about">about</a>
-    <a href="#origins">origins</a>
     <a href="#now">now</a>
+    <a href="#origins">origins</a>
     <a href="#work">work</a>
     <a href="#writing">writing</a>
     <a href="#podcast">podcast</a>
@@ -1048,8 +1048,8 @@ footer {
 </header>
 <div class="mobile-nav" id="mobile-nav">
   <a href="#about">about</a>
-  <a href="#origins">origins</a>
   <a href="#now">now</a>
+  <a href="#origins">origins</a>
   <a href="#work">work</a>
   <a href="#writing">writing</a>
   <a href="#podcast">podcast</a>
@@ -1097,88 +1097,8 @@ footer {
         <button class="copy-btn" onclick="copyEmail(this)"><svg class="icon"><use href="#i-copy"/></svg><span>copy</span></button>
         <a href="https://www.linkedin.com/in/sneha-basu/" target="_blank" rel="noopener" class="btn-linkedin">LinkedIn <svg class="icon"><use href="#i-arrow-out"/></svg></a>
       </div>
-      <a href="Sneha-resume.pdf" class="btn-outline"><svg class="icon"><use href="#i-arrow-down"/></svg>résumé</a>
+      <a href="Sneha-resume.pdf" class="btn-outline"><svg class="icon"><use href="#i-arrow-down"/></svg>resume</a>
       <span class="hero-scroll-hint">scroll for the goods</span>
-    </div>
-
-    <!-- ── Origins game ──────────────────────────────────────── -->
-    <div id="origins">
-      <div class="section-head">
-        <h2 class="section-title origins-title">Where I'm from <em>(it's complicated)</em>.</h2>
-        <p class="section-aside">A tiny side-scroller. 5 cities. 1 carry-on. Collect them all.</p>
-      </div>
-
-      <div class="game-frame">
-        <div class="game-screen" id="game-screen">
-          <canvas id="passport-canvas"></canvas>
-          <div class="game-overlay" id="game-overlay">
-            <div class="game-hud">
-              <span class="hud-tag" id="hud-tag">P1 · SNEHA</span>
-              <div class="progress-pips" id="progress-pips">
-                <div class="pip active"></div>
-                <div class="pip"></div>
-                <div class="pip"></div>
-                <div class="pip"></div>
-                <div class="pip"></div>
-              </div>
-            </div>
-            <div class="speech-bubble" id="speech">
-              <div class="speech-place" id="speech-place"></div>
-              <div id="speech-text"></div>
-              <button class="speech-stamp-btn" id="speech-stamp-btn">STAMP IT →</button>
-            </div>
-          </div>
-          <div class="complete-banner" id="complete-banner">
-            <div class="complete-inner">
-              <h3>★ ALL STAMPS COLLECTED ★</h3>
-              <p id="complete-msg">five cities, one carry-on,<br>one engineer-turned-PM.</p>
-              <button id="restart-btn">PLAY AGAIN</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="game-controls">
-          <div class="dpad">
-            <button id="walk-left" aria-label="Walk left"><svg class="icon"><use href="#i-left"/></svg></button>
-            <button id="walk-right" aria-label="Walk right"><svg class="icon"><use href="#i-right"/></svg></button>
-          </div>
-          <span class="control-hint">← → keys, or tap. Press <strong>space</strong> at a stop to stamp.</span>
-          <div class="control-spacer"></div>
-          <button class="icon-btn" id="sound-toggle" aria-label="Sound" aria-pressed="true">
-            <svg class="icon icon-on"><use href="#i-sound"/></svg>
-            <svg class="icon icon-off"><use href="#i-mute"/></svg>
-          </button>
-        </div>
-
-        <div class="passport">
-          <div class="passport-top">
-            <span class="passport-label">Passport · Sneha Basu</span>
-            <span class="passport-count" id="passport-count">0 / 5 stamps</span>
-          </div>
-          <div class="stamps-row" id="stamps-row"></div>
-          <div class="passport-readout" id="readout">
-            <span class="readout-empty">Walk right to your first stop — Kolkata, India.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="game-options">
-        <div class="opt-group">
-          <span>Character</span>
-          <div class="opt-pills" data-opt="character">
-            <button data-val="girl" class="on">pixel-me</button>
-            <button data-val="suitcase">suitcase</button>
-            <button data-val="plane">paper plane</button>
-          </div>
-        </div>
-        <div class="opt-group">
-          <span>Time</span>
-          <div class="opt-pills" data-opt="time">
-            <button data-val="day" class="on">day</button>
-            <button data-val="dusk">dusk</button>
-          </div>
-        </div>
-      </div>
     </div>
 
   </section>
@@ -1193,6 +1113,86 @@ footer {
     <div class="tile-board" id="tile-board">
       <div class="tape tape-l"></div>
       <div class="tape tape-r"></div>
+    </div>
+  </section>
+
+  <!-- ── Origins game ──────────────────────────────────────── -->
+  <section id="origins">
+    <div class="section-head">
+      <h2 class="section-title origins-title">Where I'm from <em>(it's complicated)</em>.</h2>
+      <p class="section-aside">A tiny side-scroller. 5 cities. 1 carry-on. Collect them all.</p>
+    </div>
+
+    <div class="game-frame">
+      <div class="game-screen" id="game-screen">
+        <canvas id="passport-canvas"></canvas>
+        <div class="game-overlay" id="game-overlay">
+          <div class="game-hud">
+            <span class="hud-tag" id="hud-tag">P1 · SNEHA</span>
+            <div class="progress-pips" id="progress-pips">
+              <div class="pip active"></div>
+              <div class="pip"></div>
+              <div class="pip"></div>
+              <div class="pip"></div>
+              <div class="pip"></div>
+            </div>
+          </div>
+          <div class="speech-bubble" id="speech">
+            <div class="speech-place" id="speech-place"></div>
+            <div id="speech-text"></div>
+            <button class="speech-stamp-btn" id="speech-stamp-btn">STAMP IT →</button>
+          </div>
+        </div>
+        <div class="complete-banner" id="complete-banner">
+          <div class="complete-inner">
+            <h3>★ ALL STAMPS COLLECTED ★</h3>
+            <p id="complete-msg">five cities, one carry-on,<br>one engineer-turned-PM.</p>
+            <button id="restart-btn">PLAY AGAIN</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-controls">
+        <div class="dpad">
+          <button id="walk-left" aria-label="Walk left"><svg class="icon"><use href="#i-left"/></svg></button>
+          <button id="walk-right" aria-label="Walk right"><svg class="icon"><use href="#i-right"/></svg></button>
+        </div>
+        <span class="control-hint">← → keys, or tap. Press <strong>space</strong> at a stop to stamp.</span>
+        <div class="control-spacer"></div>
+        <button class="icon-btn" id="sound-toggle" aria-label="Sound" aria-pressed="true">
+          <svg class="icon icon-on"><use href="#i-sound"/></svg>
+          <svg class="icon icon-off"><use href="#i-mute"/></svg>
+        </button>
+      </div>
+
+      <div class="passport">
+        <div class="passport-top">
+          <span class="passport-label">Passport · Sneha Basu</span>
+          <span class="passport-count" id="passport-count">0 / 5 stamps</span>
+        </div>
+        <div class="stamps-row" id="stamps-row"></div>
+        <div class="passport-readout" id="readout">
+          <span class="readout-empty">Walk right to your first stop — Kolkata, India.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-options">
+      <div class="opt-group">
+        <span>Character</span>
+        <div class="opt-pills" data-opt="character">
+          <button data-val="girl" class="on">pixel-me</button>
+          <button data-val="suitcase">suitcase</button>
+          <button data-val="plane">paper plane</button>
+        </div>
+      </div>
+      <div class="opt-group">
+        <span>Time</span>
+        <div class="opt-pills" data-opt="time">
+          <button data-val="day" class="on">day</button>
+          <button data-val="dusk">dusk</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1383,7 +1383,7 @@ footer {
           <a href="https://www.linkedin.com/in/sneha-basu/" target="_blank" rel="noopener" class="btn-linkedin">LinkedIn <svg class="icon"><use href="#i-arrow-out"/></svg></a>
         </div>
         <a href="https://github.com/snehabasu" target="_blank" rel="noopener" class="btn-outline">GitHub</a>
-        <a href="Sneha-resume.pdf" class="btn-outline"><svg class="icon"><use href="#i-arrow-down"/></svg>résumé</a>
+        <a href="Sneha-resume.pdf" class="btn-outline"><svg class="icon"><use href="#i-arrow-down"/></svg>resume</a>
       </div>
     </div>
   </div>
