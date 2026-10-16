@@ -5,7 +5,7 @@ exports.handler = async function (event) {
 
   try {
     const fetch = (await import('node-fetch')).default;
-    const res = await fetch('https://feeds.alitu.com/33228421', {
+    const res = await fetch('https://anchor.fm/s/11186e6e4/podcast/rss', {
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; podcast-fetch/1.0)' },
     });
     if (!res.ok) throw new Error(`Feed returned ${res.status}`);
@@ -38,8 +38,12 @@ exports.handler = async function (event) {
       };
     });
 
-    // Newest episode first
-    episodes.sort((a, b) => b.episode - a.episode);
+    // Newest episode first. Some episodes ship without an episode number,
+    // so sort by publish date and number any gaps by their position.
+    episodes.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+    episodes.forEach((ep, i) => {
+      if (!ep.episode) ep.episode = episodes.length - i;
+    });
 
     return {
       statusCode: 200,
