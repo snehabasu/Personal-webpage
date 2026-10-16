@@ -15,3 +15,15 @@ directory = "functions"
 # Specifies the Node.js bundler to use.
 node_bundler = "esbuild"
 included_files = ["node_modules/**"]
+# Design-tool notes live in the repo but shouldn't be served on the site.
+[[redirects]]
+from = "/PRODUCT.md"
+to = "/404"
+status = 404
+force = true
+
+[[redirects]]
+from = "/DESIGN.md"
+to = "/404"
+status = 404
+force = true
