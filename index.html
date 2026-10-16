@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Sneha Basu — builder · pm · kellogg '27</title>
 <meta name="theme-color" content="#F3F1EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1012,9 +1012,42 @@ footer {
   .contact-wrap { padding-inline: 20px; }
   footer { flex-direction: column; gap: 6px; text-align: center; padding-inline: 20px; }
 }
+/* Phones: a thumb-reach section bar replaces the menu button */
+.tabbar { display: none; }
 @media (max-width: 640px) {
   /* The side-scroller needs room to play; phones skip it */
   #origins, .origins-link { display: none; }
+
+  .nav-toggle, .mobile-nav, .mobile-nav.open { display: none; }
+  .tabbar {
+    position: fixed;
+    left: 12px; right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 120;
+    display: flex;
+    gap: 2px;
+    padding: 5px;
+    background: rgba(251,250,246,0.97);
+    border: 1px solid var(--line);
+    border-radius: 99px;
+    box-shadow: 0 2px 4px rgba(30,34,29,0.08), 0 14px 30px -10px rgba(30,34,29,0.35);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabbar::-webkit-scrollbar { display: none; }
+  .tabbar a {
+    flex: 1 0 auto;
+    text-align: center;
+    padding: 10px 8px;
+    border-radius: 99px;
+    font-size: 13px;
+    line-height: 1.2;
+    color: var(--sumi-2);
+    text-decoration: none;
+    transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out);
+  }
+  .tabbar a.on { background: var(--matcha-deep); color: var(--paper); }
+  footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -1062,6 +1095,15 @@ footer {
   <a href="#podcast">podcast</a>
   <a href="#contact">contact</a>
 </div>
+
+<nav class="tabbar" id="tabbar" aria-label="Sections">
+  <a href="#about">about</a>
+  <a href="#now">now</a>
+  <a href="#work">work</a>
+  <a href="#writing">writing</a>
+  <a href="#podcast">podcast</a>
+  <a href="#contact">contact</a>
+</nav>
 
 <main>
 
@@ -1441,6 +1483,40 @@ mobileNav.querySelectorAll('a').forEach(a => {
     navToggle.setAttribute('aria-expanded', 'false');
   });
 });
+
+// ── Phone section bar: highlight the section being read ───────
+(function() {
+  const bar = document.getElementById('tabbar');
+  const links = [...bar.querySelectorAll('a')];
+  const byId = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
+  function setActive(id) {
+    links.forEach(a => {
+      const on = a === byId[id];
+      a.classList.toggle('on', on);
+      if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+    const a = byId[id];
+    if (a && bar.scrollWidth > bar.clientWidth) {
+      bar.scrollTo({ left: a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2, behavior: 'smooth' });
+    }
+  }
+  const sections = Object.keys(byId).map(id => document.getElementById(id)).filter(Boolean);
+  let current = null, queued = false;
+  function update() {
+    queued = false;
+    if (getComputedStyle(bar).display === 'none') return;
+    // The active section is the last one whose top has passed the middle of the screen
+    let id = sections[0].id;
+    const atBottom = innerHeight + scrollY >= document.documentElement.scrollHeight - 4;
+    sections.forEach(el => { if (el.getBoundingClientRect().top <= innerHeight * 0.45) id = el.id; });
+    if (atBottom) id = sections[sections.length - 1].id;
+    if (id !== current) { current = id; setActive(id); }
+  }
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  addEventListener('scroll', queue, { passive: true });
+  addEventListener('resize', queue);
+  update();
+})();
 
 // ── Draggable "Now Building" tiles ────────────────────────────
 (function() {
