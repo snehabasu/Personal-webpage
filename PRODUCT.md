@@ -11,7 +11,6 @@ web
 A mix, with no single priority (confirmed):
 
 - Hiring managers and recruiters weighing Sneha for a full-time PM role.
-- Founders and builders working in a similar space who might collaborate or swap notes.
 - Listeners, readers and potential guests for her podcast and Substack.
 
 They usually arrive from a link (LinkedIn, résumé, a podcast or Substack post) and skim for a few minutes to decide whether to reach out.
