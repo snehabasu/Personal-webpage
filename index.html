@@ -1012,6 +1012,10 @@ footer {
   .contact-wrap { padding-inline: 20px; }
   footer { flex-direction: column; gap: 6px; text-align: center; padding-inline: 20px; }
 }
+@media (max-width: 640px) {
+  /* The side-scroller needs room to play; phones skip it */
+  #origins, .origins-link { display: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
@@ -1052,7 +1056,7 @@ footer {
 <div class="mobile-nav" id="mobile-nav">
   <a href="#about">about</a>
   <a href="#now">now</a>
-  <a href="#origins">origins</a>
+  <a href="#origins" class="origins-link">origins</a>
   <a href="#work">work</a>
   <a href="#writing">writing</a>
   <a href="#podcast">podcast</a>

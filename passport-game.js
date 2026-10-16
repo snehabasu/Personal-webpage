@@ -871,8 +871,11 @@
   }
 
   function loop() {
-    update();
-    render();
+    // Skip frames while the game is hidden (phones hide the whole section)
+    if (canvas.offsetParent !== null) {
+      update();
+      render();
+    }
     requestAnimationFrame(loop);
   }
 
