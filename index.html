@@ -585,6 +585,9 @@ main {
   box-shadow: 0 1px 2px rgba(30,34,29,0.08), 0 10px 22px -10px rgba(30,34,29,0.32);
   transition: box-shadow 0.25s var(--ease-out);
 }
+[hidden] { display: none !important; }
+.tile-board.is-static { touch-action: auto; }
+.tile-board.is-static .tile { cursor: default; user-select: text; }
 .tile:hover { box-shadow: 0 2px 4px rgba(30,34,29,0.08), 0 16px 30px -12px rgba(30,34,29,0.38); }
 .tile.dragging {
   cursor: grabbing;
@@ -1107,7 +1110,7 @@ footer {
   <section id="now" class="bleed">
     <div class="section-head">
       <h2 class="section-title">Now building.</h2>
-      <p class="section-aside now-aside">Notes pinned to the tatami. Drag them around.
+      <p class="section-aside now-aside"><span>Notes pinned to the tatami.<span class="drag-hint"> Drag them around.</span></span>
         <button class="reset-btn" id="reset-btn"><svg class="icon"><use href="#i-reset"/></svg>reset</button></p>
     </div>
     <div class="tile-board" id="tile-board">
@@ -1468,8 +1471,12 @@ mobileNav.querySelectorAll('a').forEach(a => {
   ];
 
   // On narrow boards there is no third column, so wrap into two columns
-  if (board.clientWidth < 620) {
-    // Phones: one column of notes, the board grows to fit
+  // Phones: a static column of notes, so swiping over the board still scrolls the page
+  const isStatic = board.clientWidth < 620;
+  if (isStatic) {
+    board.classList.add('is-static');
+    document.getElementById('reset-btn').hidden = true;
+    document.querySelector('.drag-hint').hidden = true;
     const w = Math.min(320, board.clientWidth - 40);
     let y = 22;
     TILES_DEF.forEach(t => {
@@ -1510,10 +1517,12 @@ mobileNav.querySelectorAll('a').forEach(a => {
         </div>
       `;
 
-      // Drag support (mouse)
-      el.addEventListener('mousedown', startDrag);
-      // Drag support (touch)
-      el.addEventListener('touchstart', startDragTouch, { passive: false });
+      if (!isStatic) {
+        // Drag support (mouse)
+        el.addEventListener('mousedown', startDrag);
+        // Drag support (touch)
+        el.addEventListener('touchstart', startDragTouch, { passive: false });
+      }
 
       board.appendChild(el);
     });
