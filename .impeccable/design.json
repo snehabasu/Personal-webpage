@@ -1,0 +1,529 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T04:01:13+00:00",
+  "title": "Design System: Sneha Basu",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#F3F1EA",
+        "oklch": "oklch(95.8% 0.010 93.6)",
+        "tonalRamp": [
+          "#0C0B07",
+          "#272520",
+          "#44423C",
+          "#63615B",
+          "#84827C",
+          "#A7A59E",
+          "#CBC9C2",
+          "#F0EEE7"
+        ]
+      },
+      "paper-recessed": {
+        "role": "neutral",
+        "displayName": "Recessed Paper",
+        "canonical": "#EAE7DC",
+        "oklch": "oklch(92.7% 0.015 94.2)",
+        "tonalRamp": [
+          "#0D0B05",
+          "#27251D",
+          "#444239",
+          "#646158",
+          "#858278",
+          "#A8A59B",
+          "#CCC9BE",
+          "#F2EFE3"
+        ]
+      },
+      "paper-raised": {
+        "role": "neutral",
+        "displayName": "Raised Paper",
+        "canonical": "#FBFAF6",
+        "oklch": "oklch(98.5% 0.005 95.1)",
+        "tonalRamp": [
+          "#0C0B09",
+          "#262522",
+          "#43423F",
+          "#62615E",
+          "#83827F",
+          "#A6A5A1",
+          "#CAC9C5",
+          "#EFEEEA"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1E221D",
+        "oklch": "oklch(24.6% 0.011 139.4)",
+        "tonalRamp": [
+          "#090C08",
+          "#222621",
+          "#3F433E",
+          "#5E635D",
+          "#7F847E",
+          "#A2A7A0",
+          "#C6CBC4",
+          "#EBF0E9"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#474C44",
+        "oklch": "oklch(40.9% 0.015 133.5)",
+        "tonalRamp": [
+          "#090D07",
+          "#22271F",
+          "#3F443C",
+          "#5E635B",
+          "#7F847C",
+          "#A1A79E",
+          "#C5CBC2",
+          "#EBF1E7"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#676C61",
+        "oklch": "oklch(52.4% 0.018 127.1)",
+        "tonalRamp": [
+          "#090D05",
+          "#23271D",
+          "#3F443A",
+          "#5E6358",
+          "#7F8479",
+          "#A2A79B",
+          "#C6CBBF",
+          "#EBF1E4"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#D9D6C9",
+        "oklch": "oklch(87.5% 0.018 96.1)",
+        "tonalRamp": [
+          "#0D0B04",
+          "#28251B",
+          "#454237",
+          "#646156",
+          "#858277",
+          "#A8A599",
+          "#CCC9BC",
+          "#F2EFE1"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Line",
+        "canonical": "#C9C6B6",
+        "oklch": "oklch(82.5% 0.022 98.2)",
+        "tonalRamp": [
+          "#0E0B03",
+          "#282519",
+          "#454235",
+          "#646253",
+          "#868374",
+          "#A8A596",
+          "#CDCABA",
+          "#F2EFDE"
+        ]
+      },
+      "deep-matcha": {
+        "role": "primary",
+        "displayName": "Deep Matcha",
+        "canonical": "#3F5A2E",
+        "oklch": "oklch(43.4% 0.075 134.4)",
+        "tonalRamp": [
+          "#040F00",
+          "#142C01",
+          "#304B1F",
+          "#4F6B3E",
+          "#6F8D5E",
+          "#91B080",
+          "#B5D5A3",
+          "#DAFAC7"
+        ]
+      },
+      "matcha": {
+        "role": "primary",
+        "displayName": "Matcha",
+        "canonical": "#6E8B3D",
+        "oklch": "oklch(59.7% 0.111 126.5)",
+        "tonalRamp": [
+          "#070E00",
+          "#1D2A01",
+          "#354A03",
+          "#516C1B",
+          "#718E40",
+          "#93B263",
+          "#B6D786",
+          "#DBFDAB"
+        ]
+      },
+      "mid-matcha": {
+        "role": "neutral",
+        "displayName": "Mid Matcha",
+        "canonical": "#C9D7A8",
+        "oklch": "oklch(85.7% 0.065 121.2)",
+        "tonalRamp": [
+          "#090D00",
+          "#212902",
+          "#3D471D",
+          "#5B673D",
+          "#7C895D",
+          "#9FAC7E",
+          "#C2D0A1",
+          "#E7F6C6"
+        ]
+      },
+      "pale-matcha": {
+        "role": "neutral",
+        "displayName": "Pale Matcha",
+        "canonical": "#DDE5C9",
+        "oklch": "oklch(90.8% 0.038 120.1)",
+        "tonalRamp": [
+          "#090D00",
+          "#232812",
+          "#3F452E",
+          "#5E654C",
+          "#7F866D",
+          "#A2A98E",
+          "#C5CDB2",
+          "#EBF3D7"
+        ]
+      },
+      "matcha-mist": {
+        "role": "neutral",
+        "displayName": "Matcha Mist",
+        "canonical": "#E9EDDC",
+        "oklch": "oklch(93.8% 0.023 117.6)",
+        "tonalRamp": [
+          "#0A0C03",
+          "#24271A",
+          "#414436",
+          "#606355",
+          "#818475",
+          "#A3A797",
+          "#C8CBBB",
+          "#EDF1E0"
+        ]
+      },
+      "pale-wood": {
+        "role": "tertiary",
+        "displayName": "Pale Wood",
+        "canonical": "#E9DCC4",
+        "oklch": "oklch(89.9% 0.035 82.9)",
+        "tonalRamp": [
+          "#120A00",
+          "#2D2310",
+          "#4B402C",
+          "#6B604B",
+          "#8D816B",
+          "#B0A48D",
+          "#D4C8B0",
+          "#FAEDD5"
+        ]
+      },
+      "wood-grain": {
+        "role": "tertiary",
+        "displayName": "Wood Grain",
+        "canonical": "#B8976A",
+        "oklch": "oklch(69.6% 0.072 74.8)",
+        "tonalRamp": [
+          "#130900",
+          "#352000",
+          "#583C0C",
+          "#795B2F",
+          "#9C7C50",
+          "#C09F72",
+          "#E5C395",
+          "#FFEBD2"
+        ]
+      },
+      "ipod-pink": {
+        "role": "secondary",
+        "displayName": "iPod Pink",
+        "canonical": "#F0559A",
+        "oklch": "oklch(67.5% 0.200 356.3)",
+        "tonalRamp": [
+          "#1D000C",
+          "#490026",
+          "#7A0044",
+          "#AF0464",
+          "#D83D85",
+          "#FD69A8",
+          "#FDAFCB",
+          "#FFE7EF"
+        ]
+      },
+      "ipod-pink-deep": {
+        "role": "secondary",
+        "displayName": "Deep iPod Pink",
+        "canonical": "#C2286E",
+        "oklch": "oklch(54.6% 0.195 359.0)",
+        "tonalRamp": [
+          "#1D000B",
+          "#490124",
+          "#7A0340",
+          "#AF0B5F",
+          "#D83F80",
+          "#FD6BA2",
+          "#FDAFC8",
+          "#FFE8EE"
+        ]
+      },
+      "pink-on-matcha": {
+        "role": "secondary",
+        "displayName": "Pink on Matcha",
+        "canonical": "#F7A9CB",
+        "oklch": "oklch(82.0% 0.101 351.8)",
+        "tonalRamp": [
+          "#1D000E",
+          "#46052A",
+          "#682748",
+          "#8B4767",
+          "#B06889",
+          "#D68AAC",
+          "#FDAED0",
+          "#FEE7F0"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero heading only; emphasis via Deep Matcha at weight 600."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles and the contact heading."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Timeline roles, note, episode and writing titles."
+      },
+      "body-large": {
+        "displayName": "Body Large",
+        "purpose": "Hero bio, max 64ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions and notes, max ~60ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Dates, meta, asides, nav, chips; tabular numerals."
+      },
+      "pixel": {
+        "displayName": "Pixel",
+        "purpose": "Passport game only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "soft",
+        "value": "0 1px 2px rgba(30,34,29,0.06), 0 8px 24px -6px rgba(30,34,29,0.14)",
+        "purpose": "Resting cards: writing card, game frame, tatami board."
+      },
+      {
+        "name": "lift",
+        "value": "0 2px 4px rgba(30,34,29,0.08), 0 22px 40px -12px rgba(30,34,29,0.28)",
+        "purpose": "Framed objects and overlays: photo arch, game completion card."
+      },
+      {
+        "name": "note",
+        "value": "0 1px 2px rgba(30,34,29,0.08), 0 10px 22px -10px rgba(30,34,29,0.32)",
+        "purpose": "Pinned notes at rest; grows on hover and drag."
+      },
+      {
+        "name": "note-drag",
+        "value": "0 4px 8px rgba(30,34,29,0.1), 0 28px 44px -14px rgba(30,34,29,0.45)",
+        "purpose": "A note while being dragged."
+      },
+      {
+        "name": "device",
+        "value": "inset 0 1.5px 0 rgba(255,255,255,0.55), inset 0 -3px 6px rgba(120,10,60,0.28), inset 2px 0 3px rgba(255,255,255,0.18), 0 2px 3px rgba(80,20,50,0.18), 0 26px 36px -16px rgba(120,30,70,0.45)",
+        "purpose": "The iPod only."
+      },
+      {
+        "name": "tabbar",
+        "value": "0 2px 4px rgba(30,34,29,0.08), 0 14px 30px -10px rgba(30,34,29,0.35)",
+        "purpose": "Phone bottom tab bar."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Every transition: buttons, underlines, notes, LCD slide."
+      },
+      {
+        "name": "lcd-slide",
+        "value": "transform 0.42s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "iPod screen sliding between Episodes and Now Playing."
+      },
+      {
+        "name": "nav-underline",
+        "value": "background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Header link underline drawing in on hover."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition-duration: 0.01ms",
+        "purpose": "All motion collapses under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "podcast-stack",
+        "value": "960px"
+      },
+      {
+        "name": "tablet",
+        "value": "820px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main action: say hello / email me. Ink pill with a pink dot.",
+      "html": "<button class=\"ds-btn-primary\"><span class=\"ds-dot\"></span>say hello</button>",
+      "css": ":host{--paper:#F3F1EA;--paper-raised:#FBFAF6;--ink:#1E221D;--ink-soft:#474C44;--ink-muted:#676C61;--line:#D9D6C9;--line-strong:#C9C6B6;--deep-matcha:#3F5A2E;--matcha:#6E8B3D;--mid-matcha:#C9D7A8;--pale-wood:#E9DCC4;--ipod-pink:#F0559A;--ipod-pink-deep:#C2286E;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;}.ds-btn-primary{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:99px;border:1px solid var(--ink);background:var(--ink);color:var(--paper-raised);font:inherit;font-size:15px;cursor:pointer;transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s cubic-bezier(.16,1,.3,1)}.ds-btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 20px -10px rgba(30,34,29,.6)}.ds-btn-primary:focus-visible{outline:2px solid var(--ipod-pink);outline-offset:3px}.ds-dot{width:8px;height:8px;border-radius:99px;background:var(--ipod-pink);box-shadow:0 0 0 3px rgba(240,85,154,.22)}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary actions: resume, GitHub.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\"><svg viewBox=\"0 0 16 16\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 3v9M4.5 8.5 8 12l3.5-3.5M3.5 14h9\"/></svg>resume</a>",
+      "css": ":host{--paper:#F3F1EA;--paper-raised:#FBFAF6;--ink:#1E221D;--ink-soft:#474C44;--ink-muted:#676C61;--line:#D9D6C9;--line-strong:#C9C6B6;--deep-matcha:#3F5A2E;--matcha:#6E8B3D;--mid-matcha:#C9D7A8;--pale-wood:#E9DCC4;--ipod-pink:#F0559A;--ipod-pink-deep:#C2286E;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;}.ds-btn-outline{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:99px;border:1px solid var(--line-strong);color:var(--ink);background:transparent;text-decoration:none;font-size:15px;transition:background .2s,border-color .2s}.ds-btn-outline:hover{border-color:var(--ink);background:var(--paper-raised)}.ds-btn-outline:focus-visible{outline:2px solid var(--ipod-pink);outline-offset:3px}"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Timeline role tags.",
+      "html": "<span class=\"ds-chip\">PM</span>",
+      "css": ":host{--paper:#F3F1EA;--paper-raised:#FBFAF6;--ink:#1E221D;--ink-soft:#474C44;--ink-muted:#676C61;--line:#D9D6C9;--line-strong:#C9C6B6;--deep-matcha:#3F5A2E;--matcha:#6E8B3D;--mid-matcha:#C9D7A8;--pale-wood:#E9DCC4;--ipod-pink:#F0559A;--ipod-pink-deep:#C2286E;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;}.ds-chip{display:inline-block;font-size:12px;color:var(--ink-muted);padding:3px 11px;border:1px solid var(--line-strong);border-radius:99px}"
+    },
+    {
+      "name": "Toggle Pills",
+      "kind": "chip",
+      "refersTo": "pill-toggle-on",
+      "description": "Connected option pills; selected segment is Deep Matcha.",
+      "html": "<div class=\"ds-pills\"><button class=\"on\">day</button><button>dusk</button></div>",
+      "css": ":host{--paper:#F3F1EA;--paper-raised:#FBFAF6;--ink:#1E221D;--ink-soft:#474C44;--ink-muted:#676C61;--line:#D9D6C9;--line-strong:#C9C6B6;--deep-matcha:#3F5A2E;--matcha:#6E8B3D;--mid-matcha:#C9D7A8;--pale-wood:#E9DCC4;--ipod-pink:#F0559A;--ipod-pink-deep:#C2286E;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;}.ds-pills{display:inline-flex;background:var(--paper-raised);border:1px solid var(--line);border-radius:99px;overflow:hidden}.ds-pills button{background:transparent;border:0;padding:6px 14px;font:inherit;font-size:13px;color:var(--ink-soft);cursor:pointer}.ds-pills button+button{border-left:1px solid var(--line)}.ds-pills button.on{background:var(--deep-matcha);color:var(--paper-raised)}.ds-pills button:focus-visible{outline:2px solid var(--ipod-pink);outline-offset:-2px}"
+    },
+    {
+      "name": "Writing Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Raised paper card with soft lift.",
+      "html": "<article class=\"ds-card\"><h3>The new gender gap: AI literacy.</h3><p class=\"ds-meta\">Latest · Feb 27</p><p>As AI tools reshape who gets ahead at work, the access gap is hiding in plain sight.</p></article>",
+      "css": ":host{--paper:#F3F1EA;--paper-raised:#FBFAF6;--ink:#1E221D;--ink-soft:#474C44;--ink-muted:#676C61;--line:#D9D6C9;--line-strong:#C9C6B6;--deep-matcha:#3F5A2E;--matcha:#6E8B3D;--mid-matcha:#C9D7A8;--pale-wood:#E9DCC4;--ipod-pink:#F0559A;--ipod-pink-deep:#C2286E;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;}.ds-card{background:var(--paper-raised);border-radius:18px;padding:40px;max-width:420px;box-shadow:0 1px 2px rgba(30,34,29,.06),0 8px 24px -6px rgba(30,34,29,.14);color:var(--ink-soft);line-height:1.75}.ds-card h3{font-family:'Shippori Mincho',Georgia,serif;font-weight:500;font-size:30px;line-height:1.25;color:var(--ink);margin:0}.ds-meta{font-size:14px;color:var(--ink-muted);margin:12px 0 18px}"
+    },
+    {
+      "name": "Pinned Note",
+      "kind": "card",
+      "refersTo": "note-tile",
+      "description": "Now Building note pinned to the tatami.",
+      "html": "<div class=\"ds-board\"><div class=\"ds-note\"><div class=\"ds-note-title\">A stock trading agent.</div><div class=\"ds-note-body\">Building an AI agent that researches the market and makes trading decisions.</div><div class=\"ds-note-foot\"><span>trading · in progress</span><span class=\"ds-tag\">agent</span></div></div></div>",
+      "css": ":host{--paper:#F3F1EA;--paper-raised:#FBFAF6;--ink:#1E221D;--ink-soft:#474C44;--ink-muted:#676C61;--line:#D9D6C9;--line-strong:#C9C6B6;--deep-matcha:#3F5A2E;--matcha:#6E8B3D;--mid-matcha:#C9D7A8;--pale-wood:#E9DCC4;--ipod-pink:#F0559A;--ipod-pink-deep:#C2286E;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;}.ds-board{padding:28px;border-block:7px solid var(--deep-matcha);border-radius:6px;background:repeating-linear-gradient(90deg,rgba(63,90,46,.07) 0 1px,transparent 1px 6px),#E1E7CE}.ds-note{width:250px;background:var(--paper-raised);color:var(--ink);border-radius:12px;padding:16px 18px 14px;transform:rotate(1.2deg);display:flex;flex-direction:column;gap:8px;box-shadow:0 1px 2px rgba(30,34,29,.08),0 10px 22px -10px rgba(30,34,29,.32);transition:box-shadow .25s}.ds-note:hover{box-shadow:0 2px 4px rgba(30,34,29,.08),0 16px 30px -12px rgba(30,34,29,.38)}.ds-note-title{font-family:'Shippori Mincho',Georgia,serif;font-weight:500;font-size:19px;line-height:1.25}.ds-note-body{font-size:13px;line-height:1.6;opacity:.85}.ds-note-foot{display:flex;justify-content:space-between;align-items:center;font-size:12px;opacity:.75}.ds-tag{font-size:11px;padding:2px 9px;border:1px solid currentColor;border-radius:99px}"
+    },
+    {
+      "name": "Desktop Nav",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Sticky header: hanko seal, mincho name, lowercase links with a matcha underline on hover.",
+      "html": "<header class=\"ds-nav\"><div class=\"ds-brand\"><span class=\"ds-hanko\">S</span><span class=\"ds-name\">Sneha Basu</span></div><nav><a href=\"#\">about</a><a href=\"#\">now</a><a href=\"#\">work</a><a href=\"#\">podcast</a></nav></header>",
+      "css": ":host{--paper:#F3F1EA;--paper-raised:#FBFAF6;--ink:#1E221D;--ink-soft:#474C44;--ink-muted:#676C61;--line:#D9D6C9;--line-strong:#C9C6B6;--deep-matcha:#3F5A2E;--matcha:#6E8B3D;--mid-matcha:#C9D7A8;--pale-wood:#E9DCC4;--ipod-pink:#F0559A;--ipod-pink-deep:#C2286E;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;}.ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 24px;background:var(--paper);border-bottom:1px solid var(--line)}.ds-brand{display:flex;align-items:center;gap:12px}.ds-hanko{width:30px;height:30px;display:inline-grid;place-items:center;background:var(--ipod-pink);color:var(--paper-raised);font-family:'Shippori Mincho',serif;font-weight:600;font-size:15px;border-radius:6px;transform:rotate(-4deg)}.ds-name{font-family:'Shippori Mincho',serif;font-weight:500;font-size:21px;color:var(--ink)}.ds-nav nav{display:flex;gap:24px;font-size:14px}.ds-nav a{color:var(--ink-soft);text-decoration:none;padding:4px 0;background:linear-gradient(var(--matcha),var(--matcha)) no-repeat 0 100%/0 1px;transition:background-size .35s cubic-bezier(.16,1,.3,1),color .2s}.ds-nav a:hover{color:var(--ink);background-size:100% 1px}.ds-nav a:focus-visible{outline:2px solid var(--ipod-pink);outline-offset:3px;border-radius:4px}"
+    },
+    {
+      "name": "Phone Tab Bar",
+      "kind": "nav",
+      "refersTo": "tabbar-link-active",
+      "description": "Floating bottom section bar on phones; active section filled Deep Matcha.",
+      "html": "<nav class=\"ds-tabbar\"><a class=\"on\" href=\"#\">about</a><a href=\"#\">now</a><a href=\"#\">work</a><a href=\"#\">writing</a><a href=\"#\">podcast</a><a href=\"#\">contact</a></nav>",
+      "css": ":host{--paper:#F3F1EA;--paper-raised:#FBFAF6;--ink:#1E221D;--ink-soft:#474C44;--ink-muted:#676C61;--line:#D9D6C9;--line-strong:#C9C6B6;--deep-matcha:#3F5A2E;--matcha:#6E8B3D;--mid-matcha:#C9D7A8;--pale-wood:#E9DCC4;--ipod-pink:#F0559A;--ipod-pink-deep:#C2286E;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;}.ds-tabbar{display:flex;gap:2px;padding:5px;max-width:366px;background:rgba(251,250,246,.97);border:1px solid var(--line);border-radius:99px;box-shadow:0 2px 4px rgba(30,34,29,.08),0 14px 30px -10px rgba(30,34,29,.35)}.ds-tabbar a{flex:1 0 auto;text-align:center;padding:10px 8px;border-radius:99px;font-size:13px;color:var(--ink-soft);text-decoration:none;transition:background .25s,color .25s}.ds-tabbar a.on{background:var(--deep-matcha);color:var(--paper-raised)}.ds-tabbar a:focus-visible{outline:2px solid var(--ipod-pink);outline-offset:2px}"
+    },
+    {
+      "name": "Pink iPod Mini",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Signature podcast player: pink body, LCD episode list, click wheel.",
+      "html": "<div class=\"ds-ipod\"><div class=\"ds-screen\"><div class=\"ds-lcd\"><div class=\"ds-bar\">Episodes</div><div class=\"ds-row sel\">Episode 4: AI in Fashion</div><div class=\"ds-row\">AI takes on the Financial World</div><div class=\"ds-row\">AI Goes Hollywood</div></div></div><div class=\"ds-wheel\"><span class=\"ds-menu\">MENU</span><button class=\"ds-center\" aria-label=\"Select\"></button></div></div>",
+      "css": ":host{--paper:#F3F1EA;--paper-raised:#FBFAF6;--ink:#1E221D;--ink-soft:#474C44;--ink-muted:#676C61;--line:#D9D6C9;--line-strong:#C9C6B6;--deep-matcha:#3F5A2E;--matcha:#6E8B3D;--mid-matcha:#C9D7A8;--pale-wood:#E9DCC4;--ipod-pink:#F0559A;--ipod-pink-deep:#C2286E;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;}.ds-ipod{width:204px;height:368px;border-radius:30px;padding:22px 18px 0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px),linear-gradient(155deg,#FF92C4 0%,#F0559A 38%,#DC3F88 100%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.55),inset 0 -3px 6px rgba(120,10,60,.28),0 26px 36px -16px rgba(120,30,70,.45)}.ds-screen{height:128px;border-radius:7px;padding:3px;background:#2A2F2C}.ds-lcd{height:100%;border-radius:4px;overflow:hidden;background:linear-gradient(170deg,#DCE5DF,#C7D2CA);color:#22302A;font-size:11px}.ds-bar{height:18px;display:grid;place-items:center;font-weight:700;border-bottom:1px solid rgba(34,48,42,.35);background:linear-gradient(#E6ECE8,#CCD6CF)}.ds-row{height:18px;line-height:18px;padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ds-row.sel{background:#34433C;color:#DCE5DF}.ds-wheel{position:relative;width:150px;height:150px;margin:30px auto 0;border-radius:50%;background:radial-gradient(circle at 50% 38%,#FF8DBF,#F2609F 55%,#E54E93);box-shadow:inset 0 2px 3px rgba(255,255,255,.35),inset 0 -2px 4px rgba(120,10,60,.25)}.ds-menu{position:absolute;top:9px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.92)}.ds-center{position:absolute;left:50%;top:50%;width:54px;height:54px;transform:translate(-50%,-50%);border:0;border-radius:50%;cursor:pointer;background:radial-gradient(circle at 50% 35%,#FF9DCA,#EC5598 80%);box-shadow:inset 0 1px 1px rgba(255,255,255,.45),0 1px 2px rgba(120,10,60,.35)}.ds-center:active{background:radial-gradient(circle at 50% 45%,#F579B3,#DD4A8E 80%)}.ds-center:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Matcha Desk",
+    "overview": "The site is a tidy, warm desk: washi-paper ground, a cup of matcha, paper notes pinned to a tatami mat, and a bright pink iPod mini sitting at the edge. The base is Japandi. That means generous empty space, quiet ink-colored type, natural materials like pale wood and woven tatami, and almost no ornament. The personality comes from objects on the desk, not from decoration on the page. Each object is something a visitor can pick up and use: the iPod plays the podcast, the notes can be dragged, the passport game can be walked through.\n\nDensity is low, and the spacing is generous. Sections breathe, with 136px between them on desktop, and each one makes a single statement. Color works in fields, not sprinkles. Whole bands of the page are matcha, and the deep-matcha contact band closes the page like the bottom of a tea bowl. Pink is the one loud voice, and its scarcity is what makes it land.\n\nThe feel is soft and tactile. Notes lift gently off the board, buttons are rounded pills, the photo sits in an arched wooden frame, and nothing has a hard edge or a hard shadow.",
+    "keyCharacteristics": [
+      "Washi-paper ground with ink-colored type; matcha owns whole bands of the page.",
+      "A Japanese mincho serif for every heading, and a soft Japanese gothic sans for everything you read.",
+      "One signature object, the pink iPod mini, plus a few small pink accents.",
+      "Soft lift and real offsets on shadows, rounded pills, and arched and woven natural materials.",
+      "Interactive, physical-feeling objects in place of generic cards."
+    ],
+    "rules": [
+      {
+        "name": "The One Pink Rule",
+        "body": "Pink belongs to the iPod. Outside it, pink appears only as small signals: the seal, focus rings, one tape strip, one button dot, and one playing-state highlight. Never use pink for a section background, a heading, or a large button.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fields Not Sprinkles Rule",
+        "body": "Matcha appears as whole regions (a full-bleed band, a board, an active pill) or as a single accent word. Don't scatter green chips and borders across neutral sections.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "Headings stand alone. No small labels or section numbers above them; meta lines go below the heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Mono Costume Rule",
+        "body": "There is no monospace font in the system. Technical credibility comes from the content, not from typewriter type. The only exception is the pixel font inside the game's own world.",
+        "section": "typography"
+      },
+      {
+        "name": "The Objects Lift, Pages Don't Rule",
+        "body": "Only things that could physically sit on the desk get a shadow. Sections, bands and lists stay flat and use hairlines.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No Hard Shadow Rule",
+        "body": "Never use a zero-blur offset shadow. Even the pixel game uses soft shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep pink scarce: it belongs to the iPod, plus small signals (seal, focus ring, button dot, one tape strip, the playing episode).",
+      "**Do** let matcha own whole regions, like full-bleed bands and the board, rather than sprinkling it.",
+      "**Do** set every heading in Shippori Mincho at weight 500, and emphasise with Deep Matcha color and weight 600, never italics.",
+      "**Do** give anything that sits on the desk a soft, offset shadow, and keep everything else flat with 1px hairlines.",
+      "**Do** use full pills for every control, and give each one hover and focus states with the 2px pink focus ring.",
+      "**Do** keep functional text at 11px or larger, including on the iPod screen.",
+      "**Do** make new signature pieces real objects that work, the way the iPod plays and the notes drag."
+    ],
+    "donts": [
+      "**Don't** put small labels or section numbers above headings.",
+      "**Don't** introduce a monospace font outside the game.",
+      "**Don't** use hard zero-blur offset shadows, glows, or gradient text.",
+      "**Don't** use pink for backgrounds, headings, or large buttons.",
+      "**Don't** use Unicode glyphs or emoji as icons. Use the drawn 1.6px line icons.",
+      "**Don't** make draggable or swipe-capturing surfaces on phones that block page scrolling."
+    ]
+  }
+}
